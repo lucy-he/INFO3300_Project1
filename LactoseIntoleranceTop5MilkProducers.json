@@ -1,0 +1,47 @@
+{
+  "Brazil": {
+    "country code":21,
+    "2011":85,
+    "Range":"80-100"
+  },
+  "India": {
+    "country code":100,
+    "2011":30,
+    "Range":"40-60"
+  },
+  "India": {
+    "country code":100,
+    "2011":70,
+    "Range":"40-60"
+  },
+  "United States of America": {
+    "country code":231,
+    "2011":74,
+    "Range":"0-20"
+  },
+  "United States of America": {
+    "country code":231,
+    "2011":53,
+    "Range":"0-20"
+  },
+  "United States of America": {
+    "country code":231,
+    "2011":87,
+    "Range":"0-20"
+  },
+  "United States of America": {
+    "country code":231,
+    "2011":13,
+    "Range":"0-20"
+  },
+  "Pakistan": {
+    "country code":165,
+    "2011":70,
+    "Range":"60-80"
+  },
+  "China": {
+    "country code":351,
+    "2011":92,
+    "Range":"80-100"
+  }
+}

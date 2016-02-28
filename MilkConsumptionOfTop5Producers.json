@@ -1,0 +1,56 @@
+{
+  "Brazil": {
+    "country codes":21,
+    "item":"Milk - Excluding Butter + (Total)",
+    "item codes":2948,
+    "element":"Food supply quantity (kg/capita/yr)",
+    "element codes":645,
+    "2011":150.8,
+    "FIELD8":null
+  },
+  "China": {
+    "country codes":351,
+    "item":"Milk - Excluding Butter + (Total)",
+    "item codes":2948,
+    "element":"Food supply quantity (kg/capita/yr)",
+    "element codes":645,
+    "2011":31.5,
+    "FIELD8":null
+  },
+  "China, mainland": {
+    "country codes":41,
+    "item":"Milk - Excluding Butter + (Total)",
+    "item codes":2948,
+    "element":"Food supply quantity (kg/capita/yr)",
+    "element codes":645,
+    "2011":31.1,
+    "FIELD8":null
+  },
+  "India": {
+    "country codes":100,
+    "item":"Milk - Excluding Butter + (Total)",
+    "item codes":2948,
+    "element":"Food supply quantity (kg/capita/yr)",
+    "element codes":645,
+    "2011":80.4,
+    "FIELD8":null
+  },
+  "Pakistan": {
+    "country codes":165,
+    "item":"Milk - Excluding Butter + (Total)",
+    "item codes":2948,
+    "element":"Food supply quantity (kg/capita/yr)",
+    "element codes":645,
+    "2011":178.6,
+    "FIELD8":null
+  },
+  "United States of America": {
+    "country codes":231,
+    "item":"Milk - Excluding Butter + (Total)",
+    "item codes":2948,
+    "element":"Food supply quantity (kg/capita/yr)",
+    "element codes":645,
+    "2011":256.8,
+    "FIELD8":null
+  }
+}

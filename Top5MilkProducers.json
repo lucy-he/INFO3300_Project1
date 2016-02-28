@@ -1,0 +1,56 @@
+{
+  "Brazil": {
+    "country codes":21,
+    "item":"Milk,Total + (Total)",
+    "item codes":1780,
+    "element":"Production (tonnes)",
+    "element codes":5510,
+    "2011":32245524,
+    "FIELD8":null
+  },
+  "China": {
+    "country codes":351,
+    "item":"Milk,Total + (Total)",
+    "item codes":1780,
+    "element":"Production (tonnes)",
+    "element codes":5510,
+    "2011":41802711,
+    "FIELD8":null
+  },
+  "China, mainland": {
+    "country codes":41,
+    "item":"Milk,Total + (Total)",
+    "item codes":1780,
+    "element":"Production (tonnes)",
+    "element codes":5510,
+    "2011":41434820,
+    "FIELD8":null
+  },
+  "India": {
+    "country codes":100,
+    "item":"Milk,Total + (Total)",
+    "item codes":1780,
+    "element":"Production (tonnes)",
+    "element codes":5510,
+    "2011":123400000,
+    "FIELD8":null
+  },
+  "Pakistan": {
+    "country codes":165,
+    "item":"Milk,Total + (Total)",
+    "item codes":1780,
+    "element":"Production (tonnes)",
+    "element codes":5510,
+    "2011":36656000,
+    "FIELD8":null
+  },
+  "United States of America": {
+    "country codes":231,
+    "item":"Milk,Total + (Total)",
+    "item codes":1780,
+    "element":"Production (tonnes)",
+    "element codes":5510,
+    "2011":89015235,
+    "FIELD8":null
+  }
+}
