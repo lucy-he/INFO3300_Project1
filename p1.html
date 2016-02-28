@@ -1,0 +1,100 @@
+
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="jquery-1.12.1.min.js"></script>
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap-theme.min.css">
+<script src="bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Analysis into High Milk Production, Low Milk Consumption in China</a>
+        </div>
+    
+
+      </div>
+    </nav>
+    <br><br>
+
+    <div class="jumbotron">
+    	<div class="container">
+      		<div class="row">
+	      		<div class="col-md-8">
+
+			        <h1>Why is China the Third Largest Milk Producing Country?</h1>
+			        <p>China is now the third largest producer of milk in the world by weight. Yet, very few of its citizens actually consume the milk produced in the country. Why is there a disparity between milk production and consumption? </p>
+		      </div>
+
+	  	  <div class="col-md-4">
+	  	  	<img src="logo.png" height="250" width="250">
+	  	  </div>
+	  	 </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <svg id="graph" width="1000" height="700"></svg>
+
+<script>
+var milk=[{"x":91,"y":40},
+      {"x":112,"y":40},
+      {"x":110,"y":48},
+      {"x":124,"y":81},
+      {"x":125,"y":151},
+      {"x":77,"y":151},
+      {"x": 78,"y":81},
+      {"x":93,"y":48},
+      {"x":91,"y":40},
+      {"x":112,"y":40}];
+
+var line=[{"x":127,"y":101},
+      {"x":75,"y":101}];
+
+var lineFunction=d3.svg.line().x(function(d){return d.x;})
+         .y(function(d){return d.y;}).interpolate("cardinal");
+
+var svg=d3.select("svg");
+var grad=svg.append("defs").append("linearGradient").attr("id", "grad").attr("x1", "0%").attr("x2", "0%").attr("y1", "100%").attr("y2", "0%");
+
+grad.append("stop").attr("offset", "50%").style("stop-color", "#FDF5E6").append("path");
+grad.append("stop").attr("offset", "50%").style("stop-color", "white");
+
+var smallmilk=d3.select("#graph").append("path").attr("d",lineFunction(milk)+lineFunction(line)).attr("stroke","black").attr("stroke-width",2).attr("fill","url(#grad)").attr("transform","translate(247,370)");
+
+var mediummilk=d3.select("#graph").append("path").attr("d",lineFunction(milk)+lineFunction(line)).attr("stroke","black").attr("stroke-width",2).attr("fill","url(#grad)").attr("transform","scale(1.5,1.5),translate(267,195)");
+
+var largemilk=d3.select("#graph").append("path").attr("d",lineFunction(milk)+lineFunction(line)).attr("stroke","black").attr("stroke-width",1).attr("fill","url(#grad)").attr("transform","scale(3,3),translate(150,18)");
+
+</script>
+
+        <script>
+      
+     var height = svg.attr("height");
+var width = svg.attr("width");
+var padding = 100;
+var xScale = d3.scale.linear().domain([0,130000000]).range([padding, width-20]);
+var yScale = d3.scale.linear().domain([0,130000000]).range([height - padding, 10]);
+var xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickFormat(d3.format(".1s"));;
+var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format(".1s"));;
+svg.append("g").attr("transform", "translate(0," + (height - padding) + ")").attr("class", "axis")
+.call(xAxis);
+svg.append("g").attr("transform", "translate(" + padding + ",0)").attr("class", "axis")
+.call(yAxis);
+    </script>
+
+
+      <br><br><br>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
