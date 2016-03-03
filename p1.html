@@ -7,6 +7,14 @@
 <link rel="stylesheet" href="bootstrap.min.css">
 <link rel="stylesheet" href="bootstrap-theme.min.css">
 <script src="bootstrap.min.js"></script>
+<style>
+.ylabel text{
+  font-weight:bold;
+}
+path .domain{
+  stroke-width:1px;
+}
+</style>
 </head>
 
 
@@ -33,7 +41,7 @@
 		      </div>
 
 	  	  <div class="col-md-4">
-	  	  	<img src="logo.png" height="250" width="250">
+	  	  	<img src="cow8.png" height="320" width="220">
 	  	  </div>
 	  	 </div>
       </div>
@@ -42,53 +50,79 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-        <svg id="graph" width="1000" height="700"></svg>
 
 <script>
-var milk=[{"x":91,"y":40},
-      {"x":112,"y":40},
-      {"x":110,"y":48},
-      {"x":124,"y":81},
-      {"x":125,"y":151},
-      {"x":77,"y":151},
-      {"x": 78,"y":81},
-      {"x":93,"y":48},
-      {"x":91,"y":40},
-      {"x":112,"y":40}];
+    var leftPadding = 150;
+    var topPadding = 200;
+    function histogram(bins) {
+      var svgContainer = d3.select("body").append("svg")
+                                            .attr("width", 1000)
+                                            .attr("height", 1100);
+      var height=svgContainer.attr("height");
+      var width=svgContainer.attr("width");
+      var XScale = d3.scale.linear()
+                                .domain([0, 10])
+                                .range([0, 800]);
+      var xAxis = d3.svg.axis()
+                        .scale(XScale)
+                      
+      var xAxisGroup = svgContainer.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(150, 530)")
+                                   .call(xAxis);
 
-var line=[{"x":127,"y":101},
-      {"x":75,"y":101}];
+      svgContainer.append("g").attr("class","ylabel").attr("transform", "translate(10," + 100 + ") rotate(270 30 12)").append("text").text("Count").style("font-size","7").call(xAxis);
+      svgContainer.append("g").attr("class","ylabel").attr("transform", "translate(10," + 100 + ") rotate(270 10 12)").append("text").text("Count").style("font-size","7").call(xAxis);
+      var YScale1 = d3.scale.linear()
+                            .domain([10000000000, 0])
+                            .range([0, 500]);
+      var yAxis1 = d3.svg.axis()
+                        .scale(YScale1)
+                        .orient("left")
+                        .ticks(5)
+      var yAxisGroup1 = svgContainer.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(150, 35)")
+                      .call(yAxis1);
+      var YScale2 = d3.scale.linear()
+                            .domain([0, 200])
+                            .range([0, 500]);
+      var yAxis2 = d3.svg.axis()
+                        .scale(YScale2)
+                        .orient("left")
+                        .ticks(5)
+      var yAxisGroup2 = svgContainer.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(150, 500)")
+                      .call(yAxis2);
+      Object.keys(bins).forEach(function(key) {
+        svgContainer.append("text").text("USA").style("font-size","7").attr("x", leftPadding + XScale(key) - 30)
+        .attr("y", 525 - YScale1(200 - bins[key]));
+        svgContainer.append("rect").attr("class", "bar").style("fill"," rgb(253, 245, 230)").style("stroke","black").style("stroke-width",1)
+        .attr("x", leftPadding + XScale(key) - 10)
+        .attr("y", 530 - YScale1( bins[key].Production))
+        .attr("width", 20)
+        .attr("height", YScale1(bins[key].Production))
+        console.log(bins[key].Production);
+      });
 
-var lineFunction=d3.svg.line().x(function(d){return d.x;})
-         .y(function(d){return d.y;}).interpolate("cardinal");
+   /*   Object.keys(bins2).forEach(function(key) {
+        svgContainer.append("rect").attr("class", "bar").style("fill","#eeeeee").style("stroke","black")
+        .attr("x", leftPadding + XScale(key) - 10)
+        .attr("y", 535)
+        .attr("width", 20)
+        .attr("height", YScale2(bins2[key]));
+      });*/
+    }
+    d3.json("pro_com.json",function(error,countries){
+      if(error){
+        console.log("error");
+      }
+      var bins=countries;
+      histogram(bins);
 
-var svg=d3.select("svg");
-var grad=svg.append("defs").append("linearGradient").attr("id", "grad").attr("x1", "0%").attr("x2", "0%").attr("y1", "100%").attr("y2", "0%");
+    })
 
-grad.append("stop").attr("offset", "50%").style("stop-color", "#FDF5E6").append("path");
-grad.append("stop").attr("offset", "50%").style("stop-color", "white");
-
-var smallmilk=d3.select("#graph").append("path").attr("d",lineFunction(milk)+lineFunction(line)).attr("stroke","black").attr("stroke-width",2).attr("fill","url(#grad)").attr("transform","translate(247,370)");
-
-var mediummilk=d3.select("#graph").append("path").attr("d",lineFunction(milk)+lineFunction(line)).attr("stroke","black").attr("stroke-width",2).attr("fill","url(#grad)").attr("transform","scale(1.5,1.5),translate(267,195)");
-
-var largemilk=d3.select("#graph").append("path").attr("d",lineFunction(milk)+lineFunction(line)).attr("stroke","black").attr("stroke-width",1).attr("fill","url(#grad)").attr("transform","scale(3,3),translate(150,18)");
-
-</script>
-
-        <script>
-      
-     var height = svg.attr("height");
-var width = svg.attr("width");
-var padding = 100;
-var xScale = d3.scale.linear().domain([0,130000000]).range([padding, width-20]);
-var yScale = d3.scale.linear().domain([0,130000000]).range([height - padding, 10]);
-var xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickFormat(d3.format(".1s"));;
-var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format(".1s"));;
-svg.append("g").attr("transform", "translate(0," + (height - padding) + ")").attr("class", "axis")
-.call(xAxis);
-svg.append("g").attr("transform", "translate(" + padding + ",0)").attr("class", "axis")
-.call(yAxis);
     </script>
 
 
