@@ -1,0 +1,122 @@
+{
+  "1": {
+    "countries":"India",
+    "Lactose Intolerance":50,
+    "Cows":43717000,
+    "Sheep":61469000
+  },
+  "2": {
+    "countries":"United States of America",
+    "Lactose Intolerance":36,
+    "Cows":9198000,
+    "Sheep":0
+  },
+  "3": {
+    "countries":"China",
+    "Lactose Intolerance":92,
+    "Cows":12297297,
+    "Sheep":133997000
+  },
+  "4": {
+    "countries":"Pakistan",
+    "Lactose Intolerance":60,
+    "Cows":10493000,
+    "Sheep":24566000
+  },
+  "5": {
+    "countries":"Brazil",
+    "Lactose Intolerance":85,
+    "Cows":23229193,
+    "Sheep":0
+  },
+  "6": {
+    "countries":"Russian Federation",
+    "Lactose Intolerance":13,
+    "Cows":8136896,
+    "Sheep":13728497
+  },
+  "7": {
+    "countries":"Germany",
+    "Lactose Intolerance":15,
+    "Cows":4190103,
+    "Sheep":0
+  },
+  "8": {
+    "countries":"France",
+    "Lactose Intolerance":20,
+    "Cows":5619569,
+    "Sheep":9255546
+  },
+  "9": {
+    "countries":"New Zealand",
+    "Lactose Intolerance":9,
+    "Cows":4528736,
+    "Sheep":39552113
+  },
+  "10": {
+    "countries":"Turkey",
+    "Lactose Intolerance":71,
+    "Cows":4761142,
+    "Sheep":25174000
+  },
+  "11": {
+    "countries":"United Kingdom",
+    "Lactose Intolerance":16,
+    "Cows":null,
+    "Sheep":35846000
+  },
+  "12": {
+    "countries":"Poland",
+    "Lactose Intolerance":37,
+    "Cows":null,
+    "Sheep":0
+  },
+  "13": {
+    "countries":"Argentina",
+    "Lactose Intolerance":60,
+    "Cows":null,
+    "Sheep":12450000
+  },
+  "14": {
+    "countries":"Mexico",
+    "Lactose Intolerance":66,
+    "Cows":null,
+    "Sheep":0
+  },
+  "15": {
+    "countries":"Australia",
+    "Lactose Intolerance":5,
+    "Cows":null,
+    "Sheep":99252377
+  },
+  "16": {
+    "countries":"Canada",
+    "Lactose Intolerance":20,
+    "Cows":null,
+    "Sheep":0
+  },
+  "17": {
+    "countries":"Spain",
+    "Lactose Intolerance":24,
+    "Cows":null,
+    "Sheep":23485948
+  },
+  "18": {
+    "countries":"Sudan (former)",
+    "Lactose Intolerance":60,
+    "Cows":null,
+    "Sheep":48440000
+  },
+  "19": {
+    "countries":"Japan",
+    "Lactose Intolerance":98,
+    "Cows":999600,
+    "Sheep":0
+  },
+  "20": {
+    "countries":"Iran (Islamic Republic of)",
+    "Lactose Intolerance":60,
+    "Cows":null,
+    "Sheep":51959000
+  }
+}
