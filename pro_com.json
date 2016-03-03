@@ -1,0 +1,102 @@
+{
+  "1": {
+    "countries":"India",
+    "Production":123400000,
+    "Consumption":80.4
+  },
+  "2": {
+    "countries":"USA",
+    "Production":89015235,
+    "Consumption":256.8
+  },
+  "3": {
+    "countries":"China",
+    "Production":41802711,
+    "Consumption":31.5
+  },
+  "4": {
+    "countries":"Pakistan",
+    "Production":36656000,
+    "Consumption":178.6
+  },
+  "5": {
+    "countries":"Brazil",
+    "Production":32245524,
+    "Consumption":150.8
+  },
+  "6": {
+    "countries":"Russian",
+    "Production":31639542,
+    "Consumption":173.9
+  },
+  "7": {
+    "countries":"Germany",
+    "Production":30336360,
+    "Consumption":255.4
+  },
+  "8": {
+    "countries":"France",
+    "Production":25289897,
+    "Consumption":250
+  },
+  "9": {
+    "countries":"New Zealand",
+    "Production":17893848,
+    "Consumption":149.3
+  },
+  "10": {
+    "countries":"Turkey",
+    "Production":15056210,
+    "Consumption":165.8
+  },
+  "11": {
+    "countries":"UK",
+    "Production":13849000,
+    "Consumption":241
+  },
+  "12": {
+    "countries":"Poland",
+    "Production":12434067,
+    "Consumption":197.9
+  },
+  "13": {
+    "countries":"Argentina",
+    "Production":11206000,
+    "Consumption":193.8
+  },
+  "14": {
+    "countries":"Mexico",
+    "Production":10886000,
+    "Consumption":111.2
+  },
+  "15": {
+    "countries":"Australia",
+    "Production":9101000,
+    "Consumption":229.9
+  },
+  "16": {
+    "countries":"Canada",
+    "Production":8400000,
+    "Consumption":218.4
+  },
+  "17": {
+    "countries":"Spain",
+    "Production":7508600,
+    "Consumption":179.8
+  },
+  "18": {
+    "countries":"Sudan",
+    "Production":7494000,
+    "Consumption":170.4
+  },
+  "19": {
+    "countries":"Iran",
+    "Production":7229893,
+    "Consumption":59.5
+  },
+  "20": {
+    "countries":"Japan",
+    "Production":7474309,
+    "Consumption":71.3
+  }
+}
