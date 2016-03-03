@@ -1,0 +1,179 @@
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+<title>Project1</title>
+
+<style>
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #00BFFF;
+    font-family: "Comic Sans MS"
+}
+
+p {
+    text-indent: 50px;
+    text-align: justify;
+    letter-spacing: 3px;
+}
+
+#svgContainer {
+	margin: auto;
+}
+body { font-family: "Open Sans"; } div { margin: 30px; }
+
+
+</style>
+
+<h1>High Supply, Low Demand</h1>
+</head>
+
+<p>
+	China is the third largest country......
+</p>
+		<script>
+		var leftPadding = 150;
+		var topPadding = 200;
+		function histogram(bins, bins2) {
+			var svgContainer = d3.select("body").append("svg")
+			                                      .attr("width", 1000)
+			                                      .attr("height", 1100);
+			var XScale = d3.scale.linear()
+			                          .domain([0, 10])
+			                          .range([0, 800]);
+			var xAxis = d3.svg.axis()
+			                  .scale(XScale)
+			                
+			var xAxisGroup = svgContainer.append("g")
+						    .attr("class", "axis")
+						    .attr("transform", "translate(150, 530)")
+			                             .call(xAxis);
+			var YScale1 = d3.scale.linear()
+	                          .domain([200, 0])
+	                          .range([0, 500]);
+			var yAxis1 = d3.svg.axis()
+			                  .scale(YScale1)
+			                  .orient("left")
+			                  .ticks(5)
+			var yAxisGroup1 = svgContainer.append("g")
+						    .attr("class", "axis")
+						    .attr("transform", "translate(150, 35)")
+			                .call(yAxis1);
+			var YScale2 = d3.scale.linear()
+	                          .domain([0, 200])
+	                          .range([0, 500]);
+			var yAxis2 = d3.svg.axis()
+			                  .scale(YScale2)
+			                  .orient("left")
+			                  .ticks(5)
+			var yAxisGroup2 = svgContainer.append("g")
+						    .attr("class", "axis")
+						    .attr("transform", "translate(150, 500)")
+			                .call(yAxis2);
+			Object.keys(bins).forEach(function(key) {
+				svgContainer.append("rect").attr("class", "bar")
+				.attr("x", leftPadding + XScale(key) - 10)
+				.attr("y", 530 - YScale1(200 - bins[key]))
+				.attr("width", 20)
+				.attr("height", YScale1(200 - bins[key]));
+			});
+
+			Object.keys(bins2).forEach(function(key) {
+				svgContainer.append("rect").attr("class", "bar")
+				.attr("x", leftPadding + XScale(key) - 10)
+				.attr("y", 535)
+				.attr("width", 20)
+				.attr("height", YScale2(bins2[key]));
+			});
+		}
+
+		var bins = {1:50, 2:100, 3: 60, 4: 75, 5:130};
+
+		var bins2 = {1:48, 2:90, 3: 10, 4: 50, 5:120};
+		histogram(bins, bins2);
+
+		</script>
+
+
+		<div id="map"></div>
+		<script>
+			var projection = d3.geo.mercator();
+			var path = d3.geo.path().projection(projection);
+			var svgContainer = d3.select("#map").append("svg")
+			    .attr("width", 1500)
+			    .attr("height", 400);
+			var g = svgContainer.append("g");
+			var worldObjects;
+			d3.json("world-50m.json", function(error, world) {
+				worldObjects = world;
+				 if(error) {
+				 	console.log("error");
+				}
+			var countries = topojson.feature(world, world.objects.countries).features;
+			countries.forEach(function(country){
+			 	g.append("path").attr('d',path(country))
+			 	.style("fill","#81BEF7")
+			 	.style("stroke","#fff");
+			});
+
+			var USCoords = projection([-95,37]);
+			g.append("circle").attr('cx',USCoords[0])
+							  .attr('cy',USCoords[1])
+							  .attr("r",5)
+			g.append("text").attr('x',USCoords[0])
+							.attr('y',USCoords[1]-5)
+							.attr('font-size','15')
+							.text('USA')
+							.attr('fill',"black");	
+
+			var IndiaCoords = projection([78,20]);
+			g.append("circle").attr('cx',IndiaCoords[0])
+							  .attr('cy',IndiaCoords[1])
+							  .attr("r",5)
+			g.append("text").attr('x',IndiaCoords[0])
+							.attr('y',IndiaCoords[1]-5)
+							.attr('font-size','15')
+							.text('India')
+							.attr('fill',"black");
+
+			var ChinaCoords = projection([104,35]);
+			g.append("circle").attr('cx',ChinaCoords[0])
+							  .attr('cy',ChinaCoords[1])
+							  .attr("r",5)
+			g.append("text").attr('x',ChinaCoords[0])
+							.attr('y',ChinaCoords[1]-5)
+							.attr('font-size','15')
+							.text('China')
+							.attr('fill',"black");
+
+			var RusCoords = projection([105,61]);
+			g.append("circle").attr('cx',RusCoords[0])
+							  .attr('cy',RusCoords[1])
+							  .attr("r",5)
+			g.append("text").attr('x',RusCoords[0])
+							.attr('y',RusCoords[1]-5)
+							.attr('font-size','15')
+							.text('Russia')
+							.attr('fill',"black");
+
+			var PakiCoords = projection([69,30]);
+			g.append("circle").attr('cx',PakiCoords[0])
+							  .attr('cy',PakiCoords[1])
+							  .attr("r",5)
+			g.append("text").attr('x',PakiCoords[0])
+							.attr('y',PakiCoords[1]-5)
+							.attr('font-size','15')
+							.text('Pakistan')
+							.attr('fill',"black");
+			
+			});
+	
+		</script>
+
+<body>
+
+</body>
+</html>
