@@ -1,0 +1,135 @@
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="jquery-1.12.1.min.js"></script>
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap-theme.min.css">
+<script src="bootstrap.min.js"></script>
+<style>
+text{
+  font-weight:bold;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+path, axis {
+  stroke-width:.2px;
+}
+p{
+  font-size:18px;
+}
+</style>
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Analysis into High Milk Production, Low Milk Consumption in China</a>
+        </div>
+    
+
+      </div>
+    </nav>
+    <br><br>
+
+    <div class="jumbotron">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-10">
+
+              <h1>Got Milk?</h1>
+              <p>China is now the third largest producer of milk in the world by weight. Yet, very few of its citizens drink the milk produced in the country. What's the reason for this disparity in milk production and consumption in that country? If a drink makes a significant portion of the population physically ill, should a country keep producing it?</p>
+          </div>
+
+        <div class="col-md-2">
+          <img src="cow8.png" height="220" width="150">
+        </div>
+       </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <h3>A Disparity in Total Milk Production vs. Consumption</h3>
+        <p>This split bar graph depicts the disparity between worldwide total milk production in white and consumption in black across the top twenty countries. Note that total milk consists of cow, sheep, bison, and goat milk. </p>
+        <blockquote>Interestingly, China produces over 37 billion kg of milk  (behind the US and India), but so few of its population consume milk. </blockquote>
+
+<script>
+    var leftPadding = 90;
+    var topPadding = 50;
+    function histogram(bins) {
+      var svgContainer = d3.select(".col-md-12").append("svg")
+                                            .attr("width", "100%")
+                                            .attr("height", 1100);
+      var height=svgContainer.attr("height");
+      var width=svgContainer.attr("width");
+      var XScale = d3.scale.linear()
+                                .domain([0, 21])
+                                .range([0, 1000]);
+      var xAxis = d3.svg.axis()
+                        .scale(XScale).tickFormat("")
+                      
+      var xAxisGroup = svgContainer.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate("+leftPadding+", 530)")
+                                   .call(xAxis);
+      svgContainer.append("g").attr("class","ylabel").attr("transform", "translate(2," + 350 + ") rotate(270 30 12)").append("text").text("Total Milk Production(Kilograms Per Billion)").style("font-size","12").style("font-weight","bold").call(xAxis);
+      svgContainer.append("g").attr("class","ylabel").attr("transform", "translate(22," + 880 + ") rotate(270 10 12)").append("text").text("Milk Consumption (Kilograms Per Capita Per Billion)").style("font-size","12").call(xAxis);
+      var YScale1 = d3.scale.linear()
+                            .domain([1500, 0])
+                            .range([0, 500]);
+      var yAxis1 = d3.svg.axis()
+                        .scale(YScale1)
+                        .orient("left")
+                        .ticks(5)
+      var yAxisGroup1 = svgContainer.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate("+leftPadding+", 35)")
+                      .call(yAxis1);
+      var YScale2 = d3.scale.linear()
+                            .domain([0, 300])
+                            .range([0, 500]);
+      var yAxis2 = d3.svg.axis()
+                        .scale(YScale2)
+                        .orient("left")
+                        .ticks(5)
+      var yAxisGroup2 = svgContainer.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(90, 500)")
+                      .call(yAxis2);
+      Object.keys(bins).forEach(function(key) {
+        svgContainer.append("text").text(bins[key].countries).style("font-size","10").attr("x", leftPadding + XScale(key) - 12)
+        .attr("y", YScale1( bins[key].Production / 100000)-10);
+        svgContainer.append("rect").attr("class", "bar").style("fill","white").style("stroke","black")
+        .attr("x", leftPadding + XScale(key) - 10)
+        .attr("y", YScale1( bins[key].Production / 100000))
+        .attr("width", 20)
+        .attr("height", 532-YScale1(bins[key].Production / 100000))
+      });
+      Object.keys(bins).forEach(function(key) {
+        svgContainer.append("rect").attr("class", "bar").style("fill","#231500")
+        .style("stroke","black").attr("x", leftPadding + XScale(key) - 10)
+        .attr("y", 535)
+        .attr("width", 20)
+        .attr("height", YScale2(bins[key].Consumption));
+        console.log(bins[key].Consumption);
+      });
+    };
+    d3.json("pro_com.json",function(error,countries){
+      if(error){
+        console.log("error");
+      }
+      var bins=countries;
+      histogram(bins);
+    })
+    </script>
+
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>
