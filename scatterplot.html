@@ -1,0 +1,189 @@
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="js/jquery-1.12.1.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<script src="js/bootstrap.min.js"></script>
+<style type="text/css">
+  .axis path,
+  .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+  }
+  .axis text {
+      font-family: sans-serif;
+      font-size: 11px;
+  }
+
+  .circle {
+      stroke: grey;
+      stroke-width: 0;
+      fill: #444;
+  }
+
+  .dot {
+    stroke: #000;
+  }
+
+</style>
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Analysis into High Milk Production, Low Milk Consumption in China</a>
+        </div>
+    
+
+      </div>
+    </nav>
+    <br><br>
+
+    <div class="jumbotron">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-10">
+
+              <h1>Got Milk?</h1>
+              <p>China is now the third largest producer of milk in the world by weight. Yet, very few of its citizens drink the milk produced in the country. What's the reason for this disparity in milk production and consumption in that country? If a drink makes a significant portion of the population physically ill, should a country keep producing it?</p>
+          </div>
+
+        <div class="col-md-2">
+          <img src="cow8.png" height="220" width="150">
+        </div>
+       </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <h3>Scatterplot Lactose intolerance by population vs. #cows</h3>
+
+<script>
+
+    var margin = {top: 20, right: 20, bottom: 30, left: 100},
+    width = 1000 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
+
+    var xScale = d3.scale.linear().domain([0, 45]).range([0, width]);
+    var yScale = d3.scale.linear().domain([0, 625]).range([height, 0]);
+
+    var color = d3.scale.category20();
+
+    var xAxis = d3.svg.axis()
+    .scale(xScale)
+    .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+    .scale(yScale)
+    .orient("left");
+
+    var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + (margin.left) + "," + margin.top + ")");    
+
+    //Get json data from scatter_plot data
+    d3.json("json/convertcsv.json", function (error,countries) {
+      if(error){
+        if (error) throw error;
+        console.log("ERROR: unable to retrieve data!")
+      }
+      console.log("I read data points.");
+      var data = countries;
+      console.log(data);
+
+      data.forEach(function (d) {
+        // body...
+        //Creating an array
+        d.LI_inMillions = +d.LI_inMillions;
+        d.cows_inMillions = +d.cows_inMillions;
+        console.log ("d.Cows = " + (+d.cows_inMillions) );
+      });
+
+      //Returns the minimum and maximum value in the given array using natural order
+      // var xScale = d3.scale.linear().domain([0, 45]).range([0, width]);
+      // var yScale = d3.scale.linear().domain([0, 625]).range([height, 0]);
+
+      console.log("I have reached this point");
+
+      svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+      .append("text")
+        .attr("class", "label")
+        .attr("x", width)
+        .attr("y", -6)
+        .style("text-anchor", "end")
+        .text("Number of Cows (in Millions)");
+
+      svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .append("text")
+        .attr("class", "label")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Population of Lactose Intolerant by Country (in Millions)");
+
+      console.log("AXIS looks fine");
+
+      svg.selectAll(".dot")
+        .data(data)
+      .enter().append("circle")
+        .attr("class", "dot")
+        .attr("r", 3.5)
+        .attr("cx", function(d) { 
+          console.log("xScale(d.Cows): " + xScale(d.cows_inMillions));
+          return xScale(d.cows_inMillions); 
+        })
+        .attr("cy", function(d) { 
+          console.log("yScale(d.lactIntol_population) " + yScale(d.LI_inMillions));
+          return yScale(d.LI_inMillions); 
+        })
+        .style("fill", function(d) { return color(d.countries); });
+
+      console.log("Data points look funny");
+
+      var legend = svg.selectAll(".legend")
+        .data(color.domain())
+      .enter().append("g")
+        .attr("class", "legend")
+        .attr("transform", function(d, i) { 
+          return "translate(0," + i * 20 + ")"; 
+        });
+
+      legend.append("rect")
+        .attr("x", width - 18)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", color);
+
+      legend.append("text")
+        .attr("x", width - 24)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .style("text-anchor", "end")
+        .text(function(d) { return d; });
+    
+    });
+
+</script>
+
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>

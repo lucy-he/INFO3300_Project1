@@ -62,49 +62,50 @@
   "11": {
     "countries":"United Kingdom",
     "Lactose Intolerance":16,
-    "Cows":null,
+    "Cows":0,
     "Sheep":35846000
   },
   "12": {
     "countries":"Poland",
     "Lactose Intolerance":37,
-    "Cows":null,
+    "Cows":0,
     "Sheep":0
   },
   "13": {
     "countries":"Argentina",
     "Lactose Intolerance":60,
-    "Cows":null,
+    "Cows":0,
     "Sheep":12450000
+
   },
   "14": {
     "countries":"Mexico",
     "Lactose Intolerance":66,
-    "Cows":null,
+    "Cows":0,
     "Sheep":0
   },
   "15": {
     "countries":"Australia",
     "Lactose Intolerance":5,
-    "Cows":null,
+    "Cows":0,
     "Sheep":99252377
   },
   "16": {
     "countries":"Canada",
     "Lactose Intolerance":20,
-    "Cows":null,
+    "Cows":0,
     "Sheep":0
   },
   "17": {
     "countries":"Spain",
     "Lactose Intolerance":24,
-    "Cows":null,
+    "Cows":0,
     "Sheep":23485948
   },
   "18": {
     "countries":"Sudan (former)",
     "Lactose Intolerance":60,
-    "Cows":null,
+    "Cows":0,
     "Sheep":48440000
   },
   "19": {
@@ -116,7 +117,7 @@
   "20": {
     "countries":"Iran (Islamic Republic of)",
     "Lactose Intolerance":60,
-    "Cows":null,
+    "Cows":0,
     "Sheep":51959000
   }
 }
