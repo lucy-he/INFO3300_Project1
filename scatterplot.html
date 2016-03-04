@@ -92,7 +92,7 @@
       .attr("transform", "translate(" + (margin.left) + "," + margin.top + ")");    
 
     //Get json data from scatter_plot data
-    d3.json("json/lactInt_Cons.json", function (error,countries) {
+    d3.json("json/all_data.json", function (error,countries) {
       if(error){
         if (error) throw error;
         console.log("ERROR: unable to retrieve data!")
