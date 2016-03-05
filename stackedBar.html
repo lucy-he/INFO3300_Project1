@@ -18,12 +18,8 @@
       font-size: 11px;
   }
 
-  .x.axis path {
-    display: none;
-  }
-
   .bar {
-    fill: steelblue;
+    fill: none;
   }
 
 </style>
@@ -67,13 +63,15 @@
 <script>
 
     var margin = {top: 20, right: 20, bottom: 35, left: 100},
-    width = 960 - margin.left - margin.right,
+    width = 1000 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
 
-    var xScale = d3.scale.linear().domain([0, 300]).range([0, width]);
-    var yScale = d3.scale.linear().domain([0, 100]).range([height, 0]);
+    //Range rounf bands and rangeRound, consieres for padding around each, typically [0,1]
+    var xScale = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+    var yScale = d3.scale.linear().rangeRound([height, 0]);
 
-    var color = d3.scale.category20();
+    var color = d3.scale.ordinal()
+    .range(["#98abc5", "#ff8c00", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
     var xAxis = d3.svg.axis()
     .scale(xScale)
@@ -81,7 +79,8 @@
 
     var yAxis = d3.svg.axis()
     .scale(yScale)
-    .orient("left");
+    .orient("left")
+    .tickFormat(d3.format(".2s"));;
 
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -92,27 +91,44 @@
     //Get json data from scatter_plot data
     d3.json("json/all_data.json", function (error,countries) {
       if(error){
-        if (error) throw error;
+        throw error;
         console.log("ERROR: unable to retrieve data!")
       }
       console.log("I read data points.");
       var data = countries;
       console.log(data);
 
-      data.forEach(function (d) {
-        // body...
-        //Creating an array
-        d.Lactose_intolerance_percent= +d.Lactose_intolerance_percent;
-        d.Consumption = +(d.Consumption);
-        console.log ("d.Consumption = " + (+(d.Consumption)) );
-        console.log ("d.Lactose_intolerance_percent = " + (+d.Lactose_intolerance_percent) );
-      });
+      //Filter out 'countries' filed from data to be considered on x-axis 
+      console.log(data[0]);
+      color.domain(d3.keys(data[0]).filter(function(key) { return (key !== "id"  
+                      && key !== "countries" 
+                      && key !== "Population"
+                      && key !== "Lactose_intolerance_percent"
+                      && key !== "lactIntol_population" 
+                      && key !== "Production" 
+                      && key !== "Consumption" 
+                      && key !== "Total_Milk_Consumption" 
+                      && key !== "Total_Animal_Count"
+                      ); 
+      }));
 
-      //Returns the minimum and maximum value in the given array using natural order
-      // var xScale = d3.scale.linear().domain([0, 45]).range([0, width]);
-      // var yScale = d3.scale.linear().domain([0, 625]).range([height, 0]);
+      data.forEach(function(d) {
+          var y0 = 0;
+          d.livestock = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
+          //d.total is redundant since this is is the same as entity 'Total_Animal_Count'
+          d.total = d.livestock[d.livestock.length - 1].y1;
+          console.log("livestock in d3.json: " + d.livestock);
+          console.log("total in d3.json: " + d.total);
+        });
 
-      //console.log("I have reached this point");
+      //console.log(data);
+      //Sort in ascending order of livestock numbers
+      //console.log(data.sort(function(a, b) { return b.total - a.total; }));
+      data.sort(function(a, b) { return b.total - a.total; })
+
+      //Set domain for x and y axis
+      xScale.domain(data.map(function(d) { return d.countries; }));
+      yScale.domain([0, d3.max(data, function(d) { return d.total; })]);
 
       svg.append("g")
         .attr("class", "x axis")
@@ -123,10 +139,10 @@
         .attr("x", width)
         .attr("y", 30)
         .style("text-anchor", "end")
-        .text("Consumption (in thousand tonnes/capita/year)");
+        .text("Countries");
 
-      svg.append("g")
-        .attr("class", "y axis")
+      svg.append('g')
+        .attr('class', 'y axis')
         .call(yAxis)
       .append("text")
         .attr("class", "label")
@@ -134,48 +150,52 @@
         .attr("y", -50)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Population of Lactose Intolerant by Country (in %)");
+        .text("Number of Livestock");
 
-      //console.log("AXIS looks fine");
-
-      svg.selectAll(".dot")
+      //Get livestock data for each country
+      var countries = svg.selectAll(".countries")
         .data(data)
-      .enter().append("circle")
-        .attr("class", "dot")
-        .attr("r", 7)
-        .attr("cx", function(d) { 
-          console.log("xScale(d.Consumption / 100: " + xScale(d.Consumption));
-          return xScale(d.Consumption); 
-        })
-        .attr("cy", function(d) { 
-          console.log("yScale(d.lactIntol_population) " + yScale(d.Lactose_intolerance_percent));
-          return yScale(d.Lactose_intolerance_percent); 
-        })
-        .style("fill", function(d) { return color(d.countries); });
-
-      console.log("Data points look funny");
-
-      var legend = svg.selectAll(".legend")
-        .data(color.domain())
       .enter().append("g")
-        .attr("class", "legend")
-        .attr("transform", function(d, i) { 
-          return "translate(0," + i * 20 + ")"; 
+        .attr("class", "g")
+        .attr("transform", function(d) { 
+          return "translate(" + xScale(d.countries) + ",0)"; 
         });
 
+      countries.selectAll("rect")
+        .data(function(d) { 
+          return d.livestock; 
+        })
+      .enter().append("rect")
+        .attr("width", xScale.rangeBand())
+        .attr("y", function(d) { 
+          return yScale(d.y1); 
+        })
+        .attr("height", function(d) { 
+          return yScale(d.y0) - yScale(d.y1); 
+        })
+        .style("fill", function(d) { return color(d.name); 
+      });
+
+      var legend = svg.selectAll(".legend")
+      .data(color.domain().slice().reverse())
+        .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
       legend.append("rect")
-        .attr("x", width - 18)
-        .attr("width", 18)
-        .attr("height", 18)
-        .style("fill", color);
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
 
       legend.append("text")
-        .attr("x", width - 24)
-        .attr("y", 9)
-        .attr("dy", ".35em")
-        .style("text-anchor", "end")
-        .text(function(d) { return d; });
-    
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function(d) { return d; });
+
+
     });
 
 </script>
