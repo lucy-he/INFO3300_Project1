@@ -4,7 +4,6 @@
     "countries":"India",
     "Population":1247446011,
     "Lactose_intolerance_percent":50,
-    "lactIntol_population":623723005.5,
     "Production":123400000,
     "Consumption":80.4,
     "Total_Milk_Consumption": 98160000,
@@ -13,14 +12,12 @@
     "Cow":44900000,
     "Goat":31700000,
     "Sheep":0,
-    "Total_Animal_Count":114900000
   },
   {
     "id":2,
     "countries":"United States of America",
     "Population":311721632,
     "Lactose_intolerance_percent":36,
-    "lactIntol_population":112219787.5,
     "Production":89015235,
     "Consumption":256.8,
     "Total_Milk_Consumption": 80859000,
@@ -36,7 +33,6 @@
     "countries":"China",
     "Population":1344130000,
     "Lactose_intolerance_percent":92,
-    "lactIntol_population":1236599600,
     "Production":41802711,
     "Consumption":31.5,
     "Total_Milk_Consumption": 44112000,
@@ -44,15 +40,13 @@
     "Camel":64100,
     "Cow":12297297,
     "Goat":1527873,
-    "Sheep":43700000,
-    "Total_Animal_Count":63089270
+    "Sheep":43700000
   },
   {
     "id":4,
     "countries":"Pakistan",
     "Population":173669648,
     "Lactose_intolerance_percent":60,
-    "lactIntol_population":104201788.8,
     "Production":36656000,
     "Consumption":178.6,
     "Total_Milk_Consumption": 31464000,
@@ -60,15 +54,13 @@
     "Camel":0,
     "Cow":10493000,
     "Goat":5400000,
-    "Sheep":720000,
-    "Total_Animal_Count":28477000
+    "Sheep":720000
   },
   {
     "id":5,
     "countries":"Brazil",
     "Population":200517584,
     "Lactose_intolerance_percent":85,
-    "lactIntol_population":170439946.4,
     "Production":32245524,
     "Consumption":150.8,
     "Total_Milk_Consumption": 29693000,
@@ -76,15 +68,13 @@
     "Camel":0,
     "Cow":23229193,
     "Goat":4977000,
-    "Sheep":0,
-    "Total_Animal_Count":28206193
+    "Sheep":0
   },
   {
     "id":6,
     "countries":"Russia",
     "Population":142960868,
     "Lactose_intolerance_percent":13,
-    "lactIntol_population":18584912.84,
     "Production":31639542,
     "Consumption":173.9,
     "Total_Milk_Consumption": 24950000,
@@ -92,15 +82,13 @@
     "Camel":140,
     "Cow":8136896,
     "Goat":81760,
-    "Sheep":20820,
-    "Total_Animal_Count":8239616
+    "Sheep":20820
   },
   {
     "id":7,
     "countries":"Germany",
     "Population":81797673,
     "Lactose_intolerance_percent":15,
-    "lactIntol_population":12269650.95,
     "Production":30336360,
     "Consumption":255.4,
     "Total_Milk_Consumption": 21171000,
@@ -108,15 +96,13 @@
     "Camel":0,
     "Cow":4190103,
     "Goat":12000,
-    "Sheep":0,
-    "Total_Animal_Count":4202103
+    "Sheep":0
   },
   {
     "id":8,
     "countries":"France",
     "Population":65342776,
     "Lactose_intolerance_percent":20,
-    "lactIntol_population":13068555.2,
     "Production":25289897,
     "Consumption":250,
     "Total_Milk_Consumption": 15896000,
@@ -124,15 +110,13 @@
     "Camel":0,
     "Cow":3664153,
     "Goat":944210,
-    "Sheep":1297651,
-    "Total_Animal_Count":5906014
+    "Sheep":1297651
   },
   {
     "id":9,
     "countries":"Turkey",
     "Population":73199372,
     "Lactose_intolerance_percent":71,
-    "lactIntol_population":51971554.12,
     "Production":15056210,
     "Consumption":165.8,
     "Total_Milk_Consumption": 12115000,
@@ -140,15 +124,13 @@
     "Camel":0,
     "Cow":4761142,
     "Goat":3033111,
-    "Sheep":11561144,
-    "Total_Animal_Count":19395615
+    "Sheep":11561144
   },
   {
     "id":10,
     "countries":"United Kingdom",
     "Population":63258918,
     "Lactose_intolerance_percent":16,
-    "lactIntol_population":10121426.88,
     "Production":13849000,
     "Consumption":241,
     "Total_Milk_Consumption": 15101000,
@@ -156,15 +138,13 @@
     "Camel":0,
     "Cow":1815000,
     "Goat":0,
-    "Sheep":0,
-    "Total_Animal_Count":1815000
+    "Sheep":0
   },
   {
     "id":11,
     "countries":"Poland",
     "Population":38063255,
     "Lactose_intolerance_percent":37,
-    "lactIntol_population":14083404.35,
     "Production":12434067,
     "Consumption":197.9,
     "Total_Milk_Consumption": 7560000,
@@ -172,15 +152,13 @@
     "Camel":0,
     "Cow":2473165,
     "Goat":94000,
-    "Sheep":13000,
-    "Total_Animal_Count":2580165
+    "Sheep":13000
   },
   {
     "id":12,
     "countries":"Argentina",
     "Population":41655616,
     "Lactose_intolerance_percent":60,
-    "lactIntol_population":24993369.6,
     "Production":11206000,
     "Consumption":193.8,
     "Total_Milk_Consumption": 7895000,
@@ -188,15 +166,13 @@
     "Camel":0,
     "Cow":2150000,
     "Goat":0,
-    "Sheep":0,
-    "Total_Animal_Count":2150000
+    "Sheep":0
   },
   {
     "id":13,
     "countries":"Mexico",
     "Population":120365271,
     "Lactose_intolerance_percent":66,
-    "lactIntol_population":79441078.86,
     "Production":10886000,
     "Consumption":111.2,
     "Total_Milk_Consumption": 13272000,
@@ -204,15 +180,13 @@
     "Camel":0,
     "Cow":2382443,
     "Goat":890000,
-    "Sheep":0,
-    "Total_Animal_Count":3272443
+    "Sheep":0
   },
   {
     "id":14,
     "countries":"Australia",
     "Population":22340024,
     "Lactose_intolerance_percent":5,
-    "lactIntol_population":1117001.2,
     "Production":9101000,
     "Consumption":229.9,
     "Total_Milk_Consumption": 5228000,
@@ -220,15 +194,13 @@
     "Camel":0,
     "Cow":1588735,
     "Goat":0,
-    "Sheep":0,
-    "Total_Animal_Count":1588735
+    "Sheep":0
   },
   {
     "id":15,
     "countries":"Canada",
     "Population":34342780,
     "Lactose_intolerance_percent":20,
-    "lactIntol_population":6868556,
     "Production":8400000,
     "Consumption":218.4,
     "Total_Milk_Consumption": 7532000,
@@ -236,15 +208,13 @@
     "Camel":0,
     "Cow":965600,
     "Goat":0,
-    "Sheep":0,
-    "Total_Animal_Count":965600
+    "Sheep":0
   },
   {
     "id":16,
     "countries":"Spain",
     "Population":46742697,
     "Lactose_intolerance_percent":24,
-    "lactIntol_population":11218247.28,
     "Production":7508600,
     "Consumption":179.8,
     "Total_Milk_Consumption": 8365000,
@@ -252,15 +222,13 @@
     "Camel":0,
     "Cow":797900,
     "Goat":1260000,
-    "Sheep":2800000,
-    "Total_Animal_Count":4857900
+    "Sheep":2800000
   },
   {
     "id":17,
     "countries":"Sudan",
     "Population":36918193,
     "Lactose_intolerance_percent":60,
-    "lactIntol_population":22150915.8,
     "Production":7494000,
     "Consumption":170.4,
     "Total_Milk_Consumption": 7422000,
@@ -268,15 +236,13 @@
     "Camel":240000,
     "Cow":14706000,
     "Goat":23785000,
-    "Sheep":28650000,
-    "Total_Animal_Count":67381000
+    "Sheep":28650000
   },
   {
     "id":18,
     "countries":"Japan",
     "Population":127817277,
     "Lactose_intolerance_percent":98,
-    "lactIntol_population":125260931.5,
     "Production":7474309,
     "Consumption":71.3,
     "Total_Milk_Consumption": 9071000,
@@ -284,15 +250,13 @@
     "Camel":0,
     "Cow":999600,
     "Goat":0,
-    "Sheep":0,
-    "Total_Animal_Count":999600
+    "Sheep":0
   },
   {
     "id":19,
     "countries":"Iran",
     "Population":75184322,
     "Lactose_intolerance_percent":60,
-    "lactIntol_population":45110593.2,
     "Production":7229893,
     "Consumption":59.5,
     "Total_Milk_Consumption": 9071000,
@@ -300,15 +264,13 @@
     "Camel":0,
     "Cow":2899000,
     "Goat":5500000,
-    "Sheep":12000000,
-    "Total_Animal_Count":20549000
+    "Sheep":12000000
   },
   {
     "id":20,
     "countries":"Uzbekistan",
     "Population":29339400,
     "Lactose_intolerance_percent":70,
-    "lactIntol_population":20537580,
     "Production":6766200,
     "Consumption":133.9,
     "Total_Milk_Consumption": 3770000,
@@ -316,7 +278,6 @@
     "Camel":5300,
     "Cow":3763600,
     "Goat":1086000,
-    "Sheep":0,
-    "Total_Animal_Count":4854900
+    "Sheep":0
   }
 ]
