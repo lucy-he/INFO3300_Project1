@@ -7,8 +7,12 @@
     "lactIntol_population":623723005.5,
     "Production":123400000,
     "Consumption":80.4,
-    "Cows":43717000,
-    "sheep":61469000
+    "Buffalo":38300000,
+    "Camel":0,
+    "Cow":44900000,
+    "Goat":31700000,
+    "Sheep":0,
+    "Total_Animal_Count":114900000
   },
   {
     "id":2,
@@ -18,8 +22,12 @@
     "lactIntol_population":112219787.5,
     "Production":89015235,
     "Consumption":256.8,
-    "Cows":9198000,
-    "sheep":0
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":1815000,
+    "Goat":0,
+    "Sheep":0,
+    "Total_Animal_Count":1815000
   },
   {
     "id":3,
@@ -29,8 +37,12 @@
     "lactIntol_population":1236599600,
     "Production":41802711,
     "Consumption":31.5,
-    "Cows":12297297,
-    "sheep":133997000
+    "Buffalo":5500000,
+    "Camel":64100,
+    "Cow":12297297,
+    "Goat":1527873,
+    "Sheep":43700000,
+    "Total_Animal_Count":63089270
   },
   {
     "id":4,
@@ -40,8 +52,12 @@
     "lactIntol_population":104201788.8,
     "Production":36656000,
     "Consumption":178.6,
-    "Cows":10493000,
-    "sheep":24566000
+    "Buffalo":11864000,
+    "Camel":0,
+    "Cow":10493000,
+    "Goat":5400000,
+    "Sheep":720000,
+    "Total_Animal_Count":28477000
   },
   {
     "id":5,
@@ -51,19 +67,27 @@
     "lactIntol_population":170439946.4,
     "Production":32245524,
     "Consumption":150.8,
-    "Cows":23229193,
-    "sheep":0
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":23229193,
+    "Goat":4977000,
+    "Sheep":0,
+    "Total_Animal_Count":28206193
   },
   {
     "id":6,
-    "countries":"Russian Federation",
+    "countries":"Russia",
     "Population":142960868,
     "Lactose_intolerance_percent":13,
     "lactIntol_population":18584912.84,
     "Production":31639542,
     "Consumption":173.9,
-    "Cows":8136896,
-    "sheep":13728497
+    "Buffalo":0,
+    "Camel":140,
+    "Cow":8136896,
+    "Goat":81760,
+    "Sheep":20820,
+    "Total_Animal_Count":8239616
   },
   {
     "id":7,
@@ -73,8 +97,12 @@
     "lactIntol_population":12269650.95,
     "Production":30336360,
     "Consumption":255.4,
-    "Cows":4190103,
-    "sheep":0
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":4190103,
+    "Goat":12000,
+    "Sheep":0,
+    "Total_Animal_Count":4202103
   },
   {
     "id":8,
@@ -84,8 +112,12 @@
     "lactIntol_population":13068555.2,
     "Production":25289897,
     "Consumption":250,
-    "Cows":5619569,
-    "sheep":9255546
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":3664153,
+    "Goat":944210,
+    "Sheep":1297651,
+    "Total_Animal_Count":5906014
   },
   {
     "id":9,
@@ -95,8 +127,12 @@
     "lactIntol_population":394560,
     "Production":17893848,
     "Consumption":149.3,
-    "Cows":4528736,
-    "sheep":39552113
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":4816000,
+    "Goat":0,
+    "Sheep":0,
+    "Total_Animal_Count":4816000
   },
   {
     "id":10,
@@ -106,8 +142,12 @@
     "lactIntol_population":51971554.12,
     "Production":15056210,
     "Consumption":165.8,
-    "Cows":4761142,
-    "sheep":25174000
+    "Buffalo":40218,
+    "Camel":0,
+    "Cow":4761142,
+    "Goat":3033111,
+    "Sheep":11561144,
+    "Total_Animal_Count":19395615
   },
   {
     "id":11,
@@ -128,8 +168,12 @@
     "lactIntol_population":14083404.35,
     "Production":12434067,
     "Consumption":197.9,
-    "Cows":0,
-    "sheep":0
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":2473165,
+    "Goat":94000,
+    "Sheep":13000,
+    "Total_Animal_Count":2580165
   },
   {
     "id":13,
@@ -139,8 +183,12 @@
     "lactIntol_population":24993369.6,
     "Production":11206000,
     "Consumption":193.8,
-    "Cows":0,
-    "sheep":12450000
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":2150000,
+    "Goat":0,
+    "Sheep":0,
+    "Total_Animal_Count":2150000
   },
   {
     "id":14,
@@ -150,8 +198,12 @@
     "lactIntol_population":79441078.86,
     "Production":10886000,
     "Consumption":111.2,
-    "Cows":0,
-    "sheep":0
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":2382443,
+    "Goat":890000,
+    "Sheep":0,
+    "Total_Animal_Count":3272443
   },
   {
     "id":15,
@@ -161,8 +213,12 @@
     "lactIntol_population":1117001.2,
     "Production":9101000,
     "Consumption":229.9,
-    "Cows":0,
-    "sheep":99252377
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":1588735,
+    "Goat":0,
+    "Sheep":0,
+    "Total_Animal_Count":1588735
   },
   {
     "id":16,
@@ -172,8 +228,12 @@
     "lactIntol_population":6868556,
     "Production":8400000,
     "Consumption":218.4,
-    "Cows":0,
-    "sheep":0
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":965600,
+    "Goat":0,
+    "Sheep":0,
+    "Total_Animal_Count":965600
   },
   {
     "id":17,
@@ -183,8 +243,12 @@
     "lactIntol_population":11218247.28,
     "Production":7508600,
     "Consumption":179.8,
-    "Cows":0,
-    "sheep":23485948
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":797900,
+    "Goat":1260000,
+    "Sheep":2800000,
+    "Total_Animal_Count":4857900
   },
   {
     "id":18,
@@ -194,8 +258,12 @@
     "lactIntol_population":22150915.8,
     "Production":7494000,
     "Consumption":170.4,
-    "Cows":0,
-    "sheep":48440000
+    "Buffalo":0,
+    "Camel":240000,
+    "Cow":14706000,
+    "Goat":23785000,
+    "Sheep":28650000,
+    "Total_Animal_Count":67381000
   },
   {
     "id":19,
@@ -205,18 +273,26 @@
     "lactIntol_population":125260931.5,
     "Production":7474309,
     "Consumption":71.3,
-    "Cows":999600,
-    "sheep":0
+    "Buffalo":0,
+    "Camel":0,
+    "Cow":999600,
+    "Goat":0,
+    "Sheep":0,
+    "Total_Animal_Count":999600
   },
   {
     "id":20,
-    "countries":"Iran (Islamic Republic of)",
+    "countries":"Iran",
     "Population":75184322,
     "Lactose_intolerance_percent":60,
     "lactIntol_population":45110593.2,
     "Production":7229893,
     "Consumption":59.5,
-    "Cows":0,
-    "sheep":51959000
+    "Buffalo":150000,
+    "Camel":0,
+    "Cow":2899000,
+    "Goat":5500000,
+    "Sheep":12000000,
+    "Total_Animal_Count":20549000
   }
 ]
