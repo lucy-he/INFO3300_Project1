@@ -62,7 +62,7 @@
 
 <script>
 
-    var margin = {top: 20, right: 20, bottom: 35, left: 100},
+    var margin = {top: 20, right: 20, bottom: 90, left: 100},
     width = 1000 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
 
@@ -80,7 +80,7 @@
     var yAxis = d3.svg.axis()
     .scale(yScale)
     .orient("left")
-    .tickFormat(d3.format(".2s"));;
+    .tickFormat(d3.format(".2s"));
 
     var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -130,16 +130,26 @@
       xScale.domain(data.map(function(d) { return d.countries; }));
       yScale.domain([0, d3.max(data, function(d) { return d.total; })]);
 
+      //Rotate the axis labels
       svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
+      .selectAll('text')
+        .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-35)" );
+
+      svg.append('g')
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
       .append("text")
         .attr("class", "label")
         .attr("x", width)
-        .attr("y", 30)
+        .attr("y", 50)
         .style("text-anchor", "end")
-        .text("Countries");
+        .text("Countries")
 
       svg.append('g')
         .attr('class', 'y axis')
@@ -151,6 +161,13 @@
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("Number of Livestock");
+
+        // //Rotate Axis labels
+        // svg.append("g")
+        //   .attr("class", "x axis")
+        //   .attr("class", "tick")
+        //   .selectAll('text')
+        //   .attr("transform", "rotate(-65)")
 
       //Get livestock data for each country
       var countries = svg.selectAll(".countries")
@@ -175,6 +192,9 @@
         })
         .style("fill", function(d) { return color(d.name); 
       });
+
+      countries.selectAll("text")
+          .attr("transform", "rotate(90)")
 
       var legend = svg.selectAll(".legend")
       .data(color.domain().slice().reverse())
