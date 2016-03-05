@@ -64,7 +64,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-        <h3>Scatterplot Lactose intolerance by population vs. Consumption (kg/capita/year)</h3>
+        <h3>Scatterplot Lactose intolerance (in %) vs. Consumption (thousand tonnes/capita/year)</h3>
 
 <script>
 
@@ -73,7 +73,7 @@
     height = 700 - margin.top - margin.bottom;
 
     var xScale = d3.scale.linear().domain([0, 300]).range([0, width]);
-    var yScale = d3.scale.linear().domain([0, 1300]).range([height, 0]);
+    var yScale = d3.scale.linear().domain([0, 100]).range([height, 0]);
 
     var color = d3.scale.category20();
 
@@ -104,10 +104,10 @@
       data.forEach(function (d) {
         // body...
         //Creating an array
-        d.LI_inMillions = +d.LI_inMillions;
-        d.Consumption = +d.Consumption;
-        console.log ("d.Consumption = " + (+d.Consumption) );
-        console.log ("d.LI_inMillions = " + (+d.LI_inMillions) );
+        d.Lactose_intolerance_percent= +d.Lactose_intolerance_percent;
+        d.Consumption = +(d.Consumption);
+        console.log ("d.Consumption = " + (+(d.Consumption)) );
+        console.log ("d.Lactose_intolerance_percent = " + (+d.Lactose_intolerance_percent) );
       });
 
       //Returns the minimum and maximum value in the given array using natural order
@@ -125,7 +125,7 @@
         .attr("x", width)
         .attr("y", 30)
         .style("text-anchor", "end")
-        .text("Consumption (in kg/capita/year)");
+        .text("Consumption (in thousand tonnes/capita/year)");
 
       svg.append("g")
         .attr("class", "y axis")
@@ -136,7 +136,7 @@
         .attr("y", -50)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Population of Lactose Intolerant by Country (in Millions)");
+        .text("Population of Lactose Intolerant by Country (in %)");
 
       //console.log("AXIS looks fine");
 
@@ -146,12 +146,12 @@
         .attr("class", "dot")
         .attr("r", 7)
         .attr("cx", function(d) { 
-          console.log("xScale(d.Consumption): " + xScale(d.Consumption));
+          console.log("xScale(d.Consumption / 100: " + xScale(d.Consumption));
           return xScale(d.Consumption); 
         })
         .attr("cy", function(d) { 
-          console.log("yScale(d.lactIntol_population) " + yScale(d.LI_inMillions));
-          return yScale(d.LI_inMillions); 
+          console.log("yScale(d.lactIntol_population) " + yScale(d.Lactose_intolerance_percent));
+          return yScale(d.Lactose_intolerance_percent); 
         })
         .style("fill", function(d) { return color(d.countries); });
 
