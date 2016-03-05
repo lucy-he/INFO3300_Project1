@@ -1,0 +1,219 @@
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="js/jquery-1.12.1.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<script src="js/bootstrap.min.js"></script>
+<style>
+text{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
+path, axis {
+  stroke-width:.2px;
+}
+p{
+  font-size:18px;
+}
+</style>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Analysis into High Milk Production, Low Milk Consumption in China</a>
+        </div>
+    
+
+      </div>
+    </nav>
+    <br><br>
+
+    <div class="jumbotron">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-10">
+
+              <h1>Got Milk?</h1>
+              <p>China is now the third largest producer of milk in the world by weight. Yet, very few of its citizens drink the milk produced in the country. What's the reason for this disparity in milk production and consumption in that country? If a drink makes a significant portion of the population physically ill, should a country keep producing it?</p>
+          </div>
+
+        <div class="col-md-2">
+          <img src="cow8.png" height="220" width="150">
+        </div>
+       </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <h3>A Disparity in Total Milk Production vs. Consumption</h3>
+        <p>This split bar graph depicts the disparity between worldwide total milk production in white and consumption in black across the top twenty countries. Note that total milk consists of cow, sheep, bison, and goat milk. </p>
+        <blockquote>Interestingly, China produces over 400 billion kg of milk  (behind the US and India), but so few of its population consume milk. </blockquote>
+        <svg id="barlabels" width="100%" height="1700">
+        <svg id="milk" width="100%" height="3000">
+        <svg id="bars" width="100%" height="1700">
+
+          </svg>
+         
+        </svg>
+        
+
+<script>
+    var leftPadding = 50;
+    var topPadding = 200;
+    var milk=[{"x":91,"y":40},
+          {"x":112,"y":40},
+          {"x":110,"y":48},
+          {"x":124,"y":81},
+          {"x":125,"y":151},
+          {"x":77,"y":151},
+          {"x": 78,"y":81},
+          {"x":93,"y":48},
+          {"x":91,"y":40},
+          {"x":112,"y":40}];
+    var indialeft=[{"x":-22,"y":32},{"x":70,"y":32}];
+    var indiaright=[{"x":130,"y":32},{"x":215,"y":32}];
+
+    var usleft=[{"x":-32,"y":58},{"x":-10,"y":58}];
+    var usright=[{"x":207,"y":58},{"x":225,"y":58}];
+
+    var chinaleft=[{"x":-40,"y":86},{"x":70,"y":86}];
+    var chinaright=[{"x":130,"y":86},{"x":232,"y":86}];
+
+    var pakleft=[{"x":-43,"y":112},{"x":63,"y":112}];
+    var pakright=[{"x":138,"y":112},{"x":235,"y":112}];
+
+    var brazilleft=[{"x":-47,"y":138},{"x":68,"y":138}];
+    var brazilright=[{"x":125,"y":138},{"x":240,"y":138}];
+
+    var russialeft=[{"x":-49,"y":164},{"x":68,"y":164}];
+    var russiaright=[{"x":130,"y":164},{"x":244,"y":164}];
+
+    var gerleft=[{"x":-53,"y":190},{"x":60,"y":190}];
+    var gerright=[{"x":140,"y":190},{"x":247,"y":190}];
+
+    var franceleft=[{"x":-57,"y":216},{"x":70,"y":216}];
+    var franceright=[{"x":130,"y":216},{"x":247,"y":216}];
+
+    var nzleft=[{"x":-59,"y":242},{"x":40,"y":242}];
+    var nzright=[{"x":160,"y":242},{"x":250,"y":242}];
+
+    var turleft=[{"x":-62,"y":268},{"x":70,"y":268}];
+    var turright=[{"x":130,"y":268},{"x":255,"y":268}];
+
+    var ukleft=[{"x":-64,"y":294},{"x":30,"y":294}];
+    var ukright=[{"x":170,"y":294},{"x":255,"y":294}];
+
+    var polandleft=[{"x":-66,"y":320},{"x":65,"y":320}];
+    var polandright=[{"x":130,"y":320},{"x":260,"y":320}];
+
+    var argleft=[{"x":-67,"y":346},{"x":55,"y":346}];
+    var argright=[{"x":145,"y":346},{"x":260,"y":346}];
+
+    var mexleft=[{"x":-67,"y":372},{"x":66,"y":372}];
+    var mexright=[{"x":132,"y":372},{"x":260,"y":372}];
+
+    var ausleft=[{"x":-68,"y":398},{"x":62,"y":398}];
+    var ausright=[{"x":138,"y":398},{"x":260,"y":398}];
+
+    var canadaleft=[{"x":-68,"y":424},{"x":62,"y":424}];
+    var canadaright=[{"x":138,"y":424},{"x":260,"y":424}];
+
+    var spainleft=[{"x":-65,"y":450},{"x":70,"y":450}];
+    var spainright=[{"x":127,"y":450},{"x":260,"y":450}];
+
+    var sudanleft=[{"x":-62,"y":476},{"x":35,"y":476}];
+    var sudanright=[{"x":163,"y":476},{"x":255,"y":476}];
+
+    var jpleft=[{"x":-57,"y":502},{"x":70,"y":502}];
+    var jpright=[{"x":130,"y":502},{"x":248,"y":502}];
+
+    var iranleft=[{"x":-42,"y":528},{"x":80,"y":528}];
+    var iranright=[{"x":120,"y":528},{"x":234,"y":528}];
+
+    var svgContainer = d3.select("#bars");
+    var svglabels=d3.select("#barlabels");
+
+    var lineFunction = d3.svg.line().x(function(d){return d.x;})
+             .y(function(d){return d.y;}).interpolate("cardinal");
+  
+    function histogram(bins) {
+      var height = svgContainer.attr("height");
+      var width = svgContainer.attr("width");
+      var XScale = d3.scale.linear()
+                                .domain([170, 0])
+                                .range([0, 430])
+                            
+      var xAxis = d3.svg.axis()
+                        .scale(XScale).ticks(5)
+                      
+      var xAxisGroup = svgContainer.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(0, 695)")
+                                   .call(xAxis);
+     svgContainer.append("g").attr("class","ylabel").attr("transform", "translate(140," + 750 + ")").append("text").text("Total Milk Production(Tonnes)").style("font-size","15").style("font-weight","bold").call(xAxis);
+      svgContainer.append("g").attr("class","ylabel").attr("transform", "translate(760," + 750 + ")").append("text").text("Total Milk Consumption (Tonnes)").style("font-size","15").style("font-weight","bold").call(xAxis);
+
+        svgContainer.append("g").attr("class","ylabel").attr("transform", "translate(50," + 100 + ")").append("text").text("2011").style("font-size","60").style("font-weight","bold").style("opacity",".25").call(xAxis);
+      var YScale1 = d3.scale.linear()
+                            .domain([0,20])
+                            .range([0, 520]);
+      var XScale2 = d3.scale.linear()
+                            .domain([0, 300])
+                            .range([0, 430]);
+      var xAxis2 = d3.svg.axis()
+                        .scale(XScale2)
+                        .ticks(5)
+      var xAxisGroup2 = svgContainer.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(660, 695)")
+                      .call(xAxis2);
+      
+
+     Object.keys(bins).forEach(function(key) {
+        svglabels.append("text").text(bins[key].countries).style("font-size","19").style("text-anchor", "middle").attr("x", 550)
+        .attr("y", YScale1( bins[key].id) + 170).attr("class","countrylabel");
+
+        svglabels.append("path").attr("d",lineFunction(indiaright)+lineFunction(indialeft)+lineFunction(usright)+lineFunction(usleft)+lineFunction(chinaright)+lineFunction(chinaleft)+lineFunction(pakleft)+lineFunction(pakright)+lineFunction(brazilleft)+lineFunction(brazilright)+lineFunction(russiaright)+lineFunction(russialeft)+lineFunction(franceright)+lineFunction(franceleft)+lineFunction(gerright)+lineFunction(gerleft)+lineFunction(nzright)+lineFunction(nzleft)+lineFunction(turleft)+lineFunction(turright)+lineFunction(ukleft)+lineFunction(ukright)+lineFunction(polandleft)+lineFunction(polandright)+lineFunction(argright)+lineFunction(argleft)+lineFunction(mexleft)+lineFunction(mexright)+lineFunction(ausleft)+lineFunction(ausright)+lineFunction(canadaleft)+lineFunction(canadaright)+lineFunction(spainleft)+lineFunction(spainright)+lineFunction(sudanleft)+lineFunction(sudanright)+lineFunction(jpleft)+lineFunction(jpright)+lineFunction(iranleft)+lineFunction(iranright)).attr("stroke","black").attr("stroke-width",1).attr("transform","translate(450,158)");
+
+
+        svgContainer.append("rect").attr("class", "bar").style("fill","white").style("stroke","black")
+        .attr("x", XScale(bins[key].Production / 1000000) - 46)
+        .attr("y", YScale1( bins[key].id) + 150)
+        .attr("width", XScale( 150 - (bins[key].Production / 1000000)))
+        .attr("height", 23)
+      });
+      Object.keys(bins).forEach(function(key) {
+        svgContainer.append("rect").attr("class", "bar").style("fill","#2C2B2A").style("stroke","black")
+        .attr("x", 660)
+        .attr("y", YScale1( bins[key].id) + 150)
+        .attr("width", XScale2(bins[key].Consumption))
+        .attr("height", 23)
+      });
+    };
+    d3.json("json/all_data.json",function(error,countries){
+      if(error){
+        console.log("error");
+      }
+      var bins=countries;
+      histogram(bins);
+    })
+    var grad = d3.select("#milk").append("defs").append("linearGradient").attr("id", "grad").attr("x1", "0%").attr("x2", "0%").attr("y1", "100%").attr("y2", "0%");
+    grad.append("stop").attr("offset", "80%").style("stop-color", "#FDF5E6").append("path");
+    grad.append("stop").attr("offset", "80%").style("stop-color", "white");
+    var milkimg=d3.select("#milk").append("path").attr("d",lineFunction(milk)).attr("stroke","black").attr("stroke-width",1).attr("fill","url(#grad)").attr("transform","scale(6,6),translate(-10,-38)");
+
+    
+    </script>
+
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>
