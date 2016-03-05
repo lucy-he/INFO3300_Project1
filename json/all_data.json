@@ -2,7 +2,6 @@
   {
     "id":1,
     "countries":"India",
-    "Population":1247446011,
     "Lactose_intolerance_percent":50,
     "Production":123400000,
     "Consumption":80.4,
@@ -16,7 +15,6 @@
   {
     "id":2,
     "countries":"United States of America",
-    "Population":311721632,
     "Lactose_intolerance_percent":36,
     "Production":89015235,
     "Consumption":256.8,
@@ -31,7 +29,6 @@
   {
     "id":3,
     "countries":"China",
-    "Population":1344130000,
     "Lactose_intolerance_percent":92,
     "Production":41802711,
     "Consumption":31.5,
@@ -45,7 +42,6 @@
   {
     "id":4,
     "countries":"Pakistan",
-    "Population":173669648,
     "Lactose_intolerance_percent":60,
     "Production":36656000,
     "Consumption":178.6,
@@ -59,7 +55,6 @@
   {
     "id":5,
     "countries":"Brazil",
-    "Population":200517584,
     "Lactose_intolerance_percent":85,
     "Production":32245524,
     "Consumption":150.8,
@@ -73,7 +68,6 @@
   {
     "id":6,
     "countries":"Russia",
-    "Population":142960868,
     "Lactose_intolerance_percent":13,
     "Production":31639542,
     "Consumption":173.9,
@@ -87,7 +81,6 @@
   {
     "id":7,
     "countries":"Germany",
-    "Population":81797673,
     "Lactose_intolerance_percent":15,
     "Production":30336360,
     "Consumption":255.4,
@@ -101,7 +94,6 @@
   {
     "id":8,
     "countries":"France",
-    "Population":65342776,
     "Lactose_intolerance_percent":20,
     "Production":25289897,
     "Consumption":250,
@@ -115,7 +107,6 @@
   {
     "id":9,
     "countries":"Turkey",
-    "Population":73199372,
     "Lactose_intolerance_percent":71,
     "Production":15056210,
     "Consumption":165.8,
@@ -129,7 +120,6 @@
   {
     "id":10,
     "countries":"United Kingdom",
-    "Population":63258918,
     "Lactose_intolerance_percent":16,
     "Production":13849000,
     "Consumption":241,
@@ -143,7 +133,6 @@
   {
     "id":11,
     "countries":"Poland",
-    "Population":38063255,
     "Lactose_intolerance_percent":37,
     "Production":12434067,
     "Consumption":197.9,
@@ -157,7 +146,6 @@
   {
     "id":12,
     "countries":"Argentina",
-    "Population":41655616,
     "Lactose_intolerance_percent":60,
     "Production":11206000,
     "Consumption":193.8,
@@ -171,7 +159,6 @@
   {
     "id":13,
     "countries":"Mexico",
-    "Population":120365271,
     "Lactose_intolerance_percent":66,
     "Production":10886000,
     "Consumption":111.2,
@@ -185,7 +172,6 @@
   {
     "id":14,
     "countries":"Australia",
-    "Population":22340024,
     "Lactose_intolerance_percent":5,
     "Production":9101000,
     "Consumption":229.9,
@@ -199,7 +185,6 @@
   {
     "id":15,
     "countries":"Canada",
-    "Population":34342780,
     "Lactose_intolerance_percent":20,
     "Production":8400000,
     "Consumption":218.4,
@@ -213,7 +198,6 @@
   {
     "id":16,
     "countries":"Spain",
-    "Population":46742697,
     "Lactose_intolerance_percent":24,
     "Production":7508600,
     "Consumption":179.8,
@@ -227,7 +211,6 @@
   {
     "id":17,
     "countries":"Sudan",
-    "Population":36918193,
     "Lactose_intolerance_percent":60,
     "Production":7494000,
     "Consumption":170.4,
@@ -241,7 +224,6 @@
   {
     "id":18,
     "countries":"Japan",
-    "Population":127817277,
     "Lactose_intolerance_percent":98,
     "Production":7474309,
     "Consumption":71.3,
@@ -255,7 +237,6 @@
   {
     "id":19,
     "countries":"Iran",
-    "Population":75184322,
     "Lactose_intolerance_percent":60,
     "Production":7229893,
     "Consumption":59.5,
@@ -269,7 +250,6 @@
   {
     "id":20,
     "countries":"Uzbekistan",
-    "Population":29339400,
     "Lactose_intolerance_percent":70,
     "Production":6766200,
     "Consumption":133.9,
