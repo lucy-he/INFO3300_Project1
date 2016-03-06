@@ -68,41 +68,41 @@
 
 <script>
 
-    var margin = {top: 20, right: 20, bottom: 35, left: 100},
-    width = 1000 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
+    var marginG2 = {top: 20, right: 20, bottom: 35, left: 100},
+    widthG2 = 1000 - marginG2.left - marginG2.right,
+    heightG2 = 700 - marginG2.top - marginG2.bottom;
 
-    var xScale = d3.scale.linear().domain([0, 300]).range([0, width]);
-    var yScale = d3.scale.linear().domain([0, 100]).range([height, 0]);
+    var xScaleG2 = d3.scale.linear().domain([0, 300]).range([0, widthG2]);
+    var yScaleG2 = d3.scale.linear().domain([0, 100]).range([heightG2, 0]);
 
-    var color = d3.scale.category20();
+    var colorG2 = d3.scale.category20();
 
-    var xAxis = d3.svg.axis()
-    .scale(xScale)
+    var xAxisG2 = d3.svg.axis()
+    .scale(xScaleG2)
     .orient("bottom");
 
-    var yAxis = d3.svg.axis()
-    .scale(yScale)
+    var yAxisG2 = d3.svg.axis()
+    .scale(yScaleG2)
     .orient("left");
 
-    var svg = d3.select("body").append("svg")
-      .attr("width", width + margin.left + margin.right + 500)
-      .attr("height", height + margin.top + margin.bottom)
+    var svgG2 = d3.select("body").append("svg")
+      .attr("width", widthG2 + marginG2.left + marginG2.right + 500)
+      .attr("height", heightG2 + marginG2.top + marginG2.bottom)
     .append("g")
-      .attr("transform", "translate(" + (margin.left) + "," + margin.top + ")");    
+      .attr("transform", "translate(" + (marginG2.left) + "," + marginG2.top + ")");    
 
     //Get json data from scatter_plot data
-    d3.json("json/all_data.json", function (error,countries) {
+    d3.json("json/all_data.json", function (error,countriesG2) {
 
-      var data = countries;
+      var dataG2 = countriesG2;
 
-      data.forEach(function (d) {
+      dataG2.forEach(function (dG2) {
         // body...
         //Creating an array
-        d.Lactose_intolerance_percent= +d.Lactose_intolerance_percent;
-        d.Consumption = +(d.Consumption);
-        console.log ("d.Consumption = " + (+(d.Consumption)) );
-        console.log ("d.Lactose_intolerance_percent = " + (+d.Lactose_intolerance_percent) );
+        dG2.Lactose_intolerance_percent= +dG2.Lactose_intolerance_percent;
+        dG2.Consumption = +(dG2.Consumption);
+        console.log ("d.Consumption = " + (+(dG2.Consumption)) );
+        console.log ("d.Lactose_intolerance_percent = " + (+dG2.Lactose_intolerance_percent) );
       });
 
       //Returns the minimum and maximum value in the given array using natural order
@@ -110,22 +110,22 @@
       // var yScale = d3.scale.linear().domain([0, 625]).range([height, 0]);
 
       //console.log("I have reached this point");
-      var countriesCon = data.sort(function(a,b){return a.Consumption - b.Consumption})
+      var countriesConG2 = dataG2.sort(function(aG2,bG2){return aG2.Consumption - bG2.Consumption})
 
-      svg.append("g")
+      svgG2.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis)
+        .attr("transform", "translate(0," + heightG2 + ")")
+        .call(xAxisG2)
       .append("text")
         .attr("class", "label")
-        .attr("x", width)
+        .attr("x", widthG2)
         .attr("y", 30)
         .style("text-anchor", "end")
         .text("Consumption (in thousand tonnes/capita/year)");
 
-      svg.append("g")
+      svgG2.append("g")
         .attr("class", "y axis")
-        .call(yAxis)
+        .call(yAxisG2)
       .append("text")
         .attr("class", "label")
         .attr("transform", "rotate(-90)")
@@ -136,60 +136,60 @@
 
       //console.log("AXIS looks fine");
 
-      svg.selectAll(".dot")
-        .data(countriesCon)
+      svgG2.selectAll(".dot")
+        .data(countriesConG2)
       .enter().append("circle")
         .attr("class", "dot")
         .attr("r", 7)
-        .attr("cx", function(d) { 
+        .attr("cx", function(dG2) { 
          // console.log("xScale(d.Consumption / 100: " + xScale(d.Consumption));
-          return xScale(d.Consumption); 
+          return xScaleG2(dG2.Consumption); 
         })
-        .attr("cy", function(d) { 
+        .attr("cy", function(dG2) { 
          // console.log("yScale(d.lactIntol_population) " + yScale(d.Lactose_intolerance_percent));
-          return yScale(d.Lactose_intolerance_percent); 
+          return yScaleG2(dG2.Lactose_intolerance_percent); 
         })
-        .style("fill", function(d) { return color(d.countries); });
+        .style("fill", function(dG2) { return colorG2(dG2.countries); });
 
       console.log("Data points look funny");
 
 
-      var colorScale = d3.scale.linear().domain([31.5, 256.8]).range([0, 400]);
+      var colorScaleG2 = d3.scale.linear().domain([31.5, 256.8]).range([0, 400]);
 
-      var colorAxis = d3.svg.axis()
-                      .scale(colorScale)
+      var colorAxisG2 = d3.svg.axis()
+                      .scale(colorScaleG2)
                       .orient("right")
                       .tickValues([31.5, 256.8]);
-      svg.append("g")
+      svgG2.append("g")
                 .attr("class", "y axis")
                 .attr("transform", "translate(950, 0)")
-                .call(colorAxis)
+                .call(colorAxisG2)
 
 
 
-      var legend = svg.selectAll(".legend")
-        .data(color.domain())
+      var legendG2 = svgG2.selectAll(".legend")
+        .data(colorG2.domain())
       .enter().append("g")
         .attr("class", "legend")
-        .attr("transform", function(countriesCon, i) { 
-          return "translate(0," + i * 20 + ")"; 
+        .attr("transform", function(countriesConG2, l) { 
+          return "translate(0," + l * 20 + ")"; 
         });
 
-      legend.append("rect")
-        .attr("x", width + 40)
+      legendG2.append("rect")
+        .attr("x", widthG2 + 40)
         .attr("width", 18)
         .attr("height", 18)
-        .style("fill", color);
+        .style("fill", colorG2);
 
-      legend.append("text")
-        .attr("x", width + 30)
+      legendG2.append("text")
+        .attr("x", widthG2 + 30)
         .attr("y", 9)
         .attr("dy", ".35em")
         .style("text-anchor", "end")
-        .text(function(d) { return d; });
+        .text(function(dG2) { return dG2; });
 
 
-      svg.append("text")
+      svgG2.append("text")
         .attr("class", "label")
         .attr("transform", "translate(940, 360) rotate(90)")
         .attr("y", -50)
