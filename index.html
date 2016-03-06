@@ -438,12 +438,12 @@
                             svglabels.append("text").text(bins[key].countries).style("font-size", "19").style("fill", "#1E1E1E").style("text-anchor", "middle").attr("x", 550)
                                 .attr("y", YScale1(bins[key].id) + 250).attr("class", "countrylabel");
                             //Adds lines through each country name to easily see how total milk production and consumption maps to which country
-                            svglabels.append("path").attr("d", lineFunction(indiaright) + lineFunction(indialeft) + lineFunction(usright) + lineFunction(usleft) + lineFunction(chinaright) + lineFunction(chinaleft) + lineFunction(pakleft) + lineFunction(pakright) + lineFunction(brazilleft) + lineFunction(brazilright) + lineFunction(russiaright) + lineFunction(russialeft) + lineFunction(franceright) + lineFunction(franceleft) + lineFunction(gerright) + lineFunction(gerleft) + lineFunction(turleft) + lineFunction(turright) + lineFunction(ukleft) + lineFunction(ukright) + lineFunction(polandleft) + lineFunction(polandright) + lineFunction(argright) + lineFunction(argleft) + lineFunction(mexleft) + lineFunction(mexright) + lineFunction(ausleft) + lineFunction(ausright) + lineFunction(canadaleft) + lineFunction(canadaright) + lineFunction(spainleft) + lineFunction(spainright) + lineFunction(sudanleft) + lineFunction(sudanright) + lineFunction(jpleft) + lineFunction(jpright) + lineFunction(iranleft) + lineFunction(iranright) + lineFunction(uzright) + lineFunction(uzleft)).attr("stroke", "#1E1E1E").attr("stroke-width", .5).attr("transform", "translate(450,238)");
+                            svglabels.append("path").attr("d", lineFunction(indiaright) + lineFunction(indialeft) + lineFunction(usright) + lineFunction(usleft) + lineFunction(chinaright) + lineFunction(chinaleft) + lineFunction(pakleft) + lineFunction(pakright) + lineFunction(brazilleft) + lineFunction(brazilright) + lineFunction(russiaright) + lineFunction(russialeft) + lineFunction(franceright) + lineFunction(franceleft) + lineFunction(gerright) + lineFunction(gerleft) + lineFunction(turleft) + lineFunction(turright) + lineFunction(ukleft) + lineFunction(ukright) + lineFunction(polandleft) + lineFunction(polandright) + lineFunction(argright) + lineFunction(argleft) + lineFunction(mexleft) + lineFunction(mexright) + lineFunction(ausleft) + lineFunction(ausright) + lineFunction(canadaleft) + lineFunction(canadaright) + lineFunction(spainleft) + lineFunction(spainright) + lineFunction(sudanleft) + lineFunction(sudanright) + lineFunction(jpleft) + lineFunction(jpright) + lineFunction(iranleft) + lineFunction(iranright) + lineFunction(uzright) + lineFunction(uzleft)).attr("stroke", "#1E1E1E").attr("stroke-width", 1).attr("transform", "translate(450,238)");
                         });
                         //Loops through each of country keys inside all-data.json to append bars for milk production for each individual country
                         Object.keys(bins).forEach(function(key) {
                             //appends bars for milk production for each individual country
-                            svgContainer.append("rect").attr("class", "bar").style("fill", "#ECE0D0")
+                            svgContainer.append("rect").attr("class", "bar").style("fill", "#8CBEE8")
                                 .attr("x", XScale(bins[key].Production / 1000000) - 26)
                                 .attr("y", YScale1(bins[key].id) + 230)
                                 .attr("width", XScale(150 - (bins[key].Production / 1000000)))
@@ -451,7 +451,7 @@
                         });
                         //Loops through each of the country keys inside all-data.json to append bars for milk consumption for each individual country
                         Object.keys(bins).forEach(function(key) {
-                            svgContainer.append("rect").attr("class", "bar").style("fill", "#DBE3F6")
+                            svgContainer.append("rect").attr("class", "bar").style("fill", "#DCD1FD")
                                 .attr("x", 660)
                                 .attr("y", YScale1(bins[key].id) + 230)
                                 .attr("width", XScale2(bins[key].Total_Milk_Consumption / 1000000) + 8)
@@ -499,7 +499,7 @@
                     var xScale = d3.scale.ordinal().rangeRoundBands([0, width], .1);
                     var yScale = d3.scale.linear().rangeRound([height, 0]);
                     var color = d3.scale.ordinal()
-                        .range(["#FDF5E6", "#367CAF", "#DBE3F6", "#ECE0D0", "#89CCE9"]);
+                        .range(["#fcdae7", "#FFF5E7", "#DCD1FD", "#8cbee8","#8596FF"]);
                     var xAxis = d3.svg.axis()
                         .scale(xScale)
                         .orient("bottom");
@@ -649,7 +649,8 @@
                         heightG2 = 700 - marginG2.top - marginG2.bottom;
                     var xScaleG2 = d3.scale.linear().domain([0, 300]).range([0, widthG2]);
                     var yScaleG2 = d3.scale.linear().domain([0, 100]).range([heightG2, 0]);
-                    var colorG2 = d3.scale.category20();
+                    var colorG2 = d3.scale.ordinal()
+                        .range(["#0801ee", "#3affe7", "#ffa3e9", "#01b1f6", "#fe03ea", "#6373fd", "#fff5e7", "#a748ff", "#92e7f9", "#9995e9", "#e3fde8", "#dcd1fd", "#51c7e8", "#b0e3e8", "#b7ffe8", "#8596ff", "#fcdae7", "#8cbee8", "#03f1fe", "#713ce7"]);
                     var xAxisG2 = d3.svg.axis()
                         .scale(xScaleG2)
                         .orient("bottom");
