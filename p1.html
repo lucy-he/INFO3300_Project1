@@ -352,7 +352,7 @@ p{
         .attr("y", -50)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("ranking of countries by milk consumption in tonnes/capita");
+        .text("Ranking of countries by milk consumption in tonnes/capita");
     
     });
 
@@ -362,29 +362,33 @@ p{
     </div>
        <div class="row">
         <div id="graph3" class="col-md-12">
-        <h3>Scatterplot Lactose intolerance (in %) vs. Consumption (thousand tonnes/capita/year)</h3>
+        <h3>Number of Milk Producing livestock by Country</h3>
 
 <script>
-    var margin = {top: 20, right: 20, bottom: 90, left: 100},
+    var margin = {top: 20, right: 20, bottom: 120, left: 100},
     width = 1000 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
+
     //Range rounf bands and rangeRound, consieres for padding around each, typically [0,1]
     var xScale = d3.scale.ordinal().rangeRoundBands([0, width], .1);
     var yScale = d3.scale.linear().rangeRound([height, 0]);
     var color = d3.scale.ordinal()
-    .range(["#98abc5", "#ff8c00", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+      .range(["#98abc5", "#ff8c00", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
     var xAxis = d3.svg.axis()
-    .scale(xScale)
-    .orient("bottom");
+      .scale(xScale)
+      .orient("bottom");
     var yAxis = d3.svg.axis()
-    .scale(yScale)
-    .orient("left")
-    .tickFormat(d3.format(".2s"));
+      .scale(yScale)
+      .orient("left")
+      .tickFormat(d3.format(".2s"));
+
     var svg3 = d3.select("#graph3").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
-      .attr("transform", "translate(" + (margin.left) + "," + margin.top + ")");    
+      .attr("transform", "translate(" + (margin.left) + "," + margin.top + ")"); 
+
     //Get json data from scatter_plot data
     d3.json("json/all_data.json", function (error,countries) {
       if(error){
@@ -394,7 +398,8 @@ p{
       //console.log("I read data points.");
       var data = countries;
       //console.log(data);
-      //Filter out 'countries' filed from data to be considered on x-axis 
+
+      //Filter out entitites not required on y axis 
       //console.log(data[0]);
       color.domain(d3.keys(data[0]).filter(function(key) { return (key !== "id"  
                       && key !== "countries" 
@@ -415,13 +420,17 @@ p{
           //console.log("livestock in d3.json: " + d.livestock);
           //console.log("total in d3.json: " + d.total);
         });
+
       //console.log(data);
+
       //Sort in ascending order of livestock numbers
       //console.log(data.sort(function(a, b) { return b.total - a.total; }));
       data.sort(function(a, b) { return b.total - a.total; })
+
       //Set domain for x and y axis
       xScale.domain(data.map(function(d) { return d.countries; }));
       yScale.domain([0, d3.max(data, function(d) { return d.total; })]);
+
       //Rotate the axis labels
       svg3.append("g")
         .attr("class", "x axis")
@@ -432,6 +441,7 @@ p{
             .attr("dx", "-.8em")
             .attr("dy", ".15em")
             .attr("transform", "rotate(-35)" );
+      
       svg3.append('g')
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
@@ -441,23 +451,18 @@ p{
         .attr("y", 50)
         .style("text-anchor", "end")
         .text("Countries")
+      
       svg3.append('g')
         .attr('class', 'y axis')
         .call(yAxis)
       .append("text")
         .attr("class", "label")
         .attr("transform", "rotate(-90)")
-        .attr("y", -50)
+        .attr("y", -60)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("Number of Livestock");
-        // //Rotate Axis labels
-        // svg.append("g")
-        //   .attr("class", "x axis")
-        //   .attr("class", "tick")
-        //   .selectAll('text')
-        //   .attr("transform", "rotate(-65)")
-      //Get livestock data for each country
+        
       var countries = svg3.selectAll(".countries")
         .data(data)
       .enter().append("g")
@@ -479,8 +484,8 @@ p{
         })
         .style("fill", function(d) { return color(d.name); 
       });
-      countries.selectAll("text")
-          .attr("transform", "rotate(90)")
+
+
       var legend = svg3.selectAll(".legend")
       .data(color.domain().slice().reverse())
         .enter().append("g")
