@@ -85,8 +85,8 @@ p{
     var indialeft=[{"x":-8,"y":32},{"x":70,"y":32}];
     var indiaright=[{"x":130,"y":32},{"x":212,"y":32}];
 
-    var usleft=[{"x":-9,"y":58},{"x":-4,"y":58}];
-    var usright=[{"x":207,"y":58},{"x":214,"y":58}];
+    var usleft=[{"x":-9,"y":58},{"x":-6,"y":58}];
+    var usright=[{"x":209,"y":58},{"x":214,"y":58}];
 
     var chinaleft=[{"x":-14,"y":86},{"x":70,"y":86}];
     var chinaright=[{"x":130,"y":86},{"x":215,"y":86}];
@@ -177,7 +177,7 @@ p{
                         .ticks(5)
       var xAxisGroup2 = svgContainer.append("g")
                 .attr("class", "axis")
-                .attr("transform", "translate(660, 774)")
+                .attr("transform", "translate(668, 774)")
                       .call(xAxis2);
       
 
@@ -198,7 +198,7 @@ p{
         svgContainer.append("rect").attr("class", "bar").style("fill","#2C2B2A").style("stroke","black")
         .attr("x", 660)
         .attr("y", YScale1( bins[key].id) + 230)
-        .attr("width", XScale2(bins[key].Total_Milk_Consumption/1000000))
+        .attr("width", XScale2(bins[key].Total_Milk_Consumption/1000000) + 8)
         .attr("height", 23)
       });
     };
