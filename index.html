@@ -499,7 +499,7 @@
                     var xScale = d3.scale.ordinal().rangeRoundBands([0, width], .1);
                     var yScale = d3.scale.linear().rangeRound([height, 0]);
                     var color = d3.scale.ordinal()
-                        .range(["#fcdae7", "#FFF5E7", "#DCD1FD", "#8cbee8","#8596FF"]);
+                        .range(["#fcdae7", "#FFF5E7", "#8cbee8", "#DCD1FD","#8596FF"]);
                     var xAxis = d3.svg.axis()
                         .scale(xScale)
                         .orient("bottom");
@@ -650,7 +650,7 @@
                     var xScaleG2 = d3.scale.linear().domain([0, 300]).range([0, widthG2]);
                     var yScaleG2 = d3.scale.linear().domain([0, 100]).range([heightG2, 0]);
                     var colorG2 = d3.scale.ordinal()
-                        .range(["#0801ee", "#3affe7", "#ffa3e9", "#01b1f6", "#fe03ea", "#6373fd", "#fff5e7", "#a748ff", "#92e7f9", "#9995e9", "#e3fde8", "#dcd1fd", "#51c7e8", "#b0e3e8", "#b7ffe8", "#8596ff", "#fcdae7", "#8cbee8", "#03f1fe", "#713ce7"]);
+                        .range(["#dcd1fd", "#3affe7", "#ffa3e9", "#01b1f6", "#fe03ea", "#6373fd", "#fff5e7", "#a748ff", "#92e7f9", "#9995e9", "#e3fde8", "#0801ee", "#51c7e8", "#b0e3e8", "#b7ffe8", "#8596ff", "#fcdae7", "#8cbee8", "#03f1fe", "#713ce7"]);
                     var xAxisG2 = d3.svg.axis()
                         .scale(xScaleG2)
                         .orient("bottom");
