@@ -415,7 +415,7 @@
 
                         var xAxisGroup = svgContainer.append("g")
                             .attr("class", "axis")
-                            .attr("transform", "translate(15, 774)")
+                            .attr("transform", "translate(9, 774)")
                             .call(xAxis);
 
                         var YScale1 = d3.scale.linear()
@@ -429,7 +429,7 @@
                             .ticks(5)
                         var xAxisGroup2 = svgContainer.append("g")
                             .attr("class", "axis")
-                            .attr("transform", "translate(659, 774)")
+                            .attr("transform", "translate(665, 774)")
                             .call(xAxis2);
 
                         //Loops through each of the country keys inside all-data.json to append text and paths to draw out the lines inside the milk bottle
@@ -444,7 +444,7 @@
                         Object.keys(bins).forEach(function(key) {
                             //appends bars for milk production for each individual country
                             svgContainer.append("rect").attr("class", "bar").style("fill", "#8CBEE8")
-                                .attr("x", XScale(bins[key].Production / 1000000) - 26)
+                                .attr("x", XScale(bins[key].Production / 1000000) - 20)
                                 .attr("y", YScale1(bins[key].id) + 230)
                                 .attr("width", XScale(150 - (bins[key].Production / 1000000)))
                                 .attr("height", 23)
@@ -454,7 +454,7 @@
                             svgContainer.append("rect").attr("class", "bar").style("fill", "#DCD1FD")
                                 .attr("x", 660)
                                 .attr("y", YScale1(bins[key].id) + 230)
-                                .attr("width", XScale2(bins[key].Total_Milk_Consumption / 1000000) + 8)
+                                .attr("width", XScale2(bins[key].Total_Milk_Consumption / 1000000) + 14)
                                 .attr("height", 23)
                         });
 
