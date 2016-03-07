@@ -76,7 +76,6 @@
                 <script>
                     var leftPadding = 50;
                     var topPadding = 200;
-
                     //Coordinates for the svg milk bottle 
                     var milk = [{
                         "x": 91,
@@ -109,7 +108,6 @@
                         "x": 91,
                         "y": 40
                     }, ];
-
                     //Coordinates for the lines through the country name
                     var indialeft = [{
                         "x": -8,
@@ -393,31 +391,26 @@
                     }];
                     var svgContainer = d3.select("#bars");
                     var svglabels = d3.select("#barlabels");
-
-                    //line function to draw and smooth out the milk bottle 
+                    //line function to draw and smooth out points for the milk bottle 
                     var lineFunction = d3.svg.line().x(function(d) {
                             return d.x;
                         })
                         .y(function(d) {
                             return d.y;
                         }).interpolate("cardinal");
-
-                    //Draws from all-data.json dataset to create individual bars for milk production and consumption and two separate x axis 
+                    //Retrieves all-data.json dataset to create individual bars for milk production and consumption and two separate x axis 
                     function histogram(bins) {
                         var height = svgContainer.attr("height");
                         var width = svgContainer.attr("width");
                         var XScale = d3.scale.linear()
                             .domain([170, 0])
                             .range([0, 430])
-
                         var xAxis = d3.svg.axis()
                             .scale(XScale).ticks(5)
-
                         var xAxisGroup = svgContainer.append("g")
                             .attr("class", "axis")
                             .attr("transform", "translate(9, 774)")
                             .call(xAxis);
-
                         var YScale1 = d3.scale.linear()
                             .domain([0, 20])
                             .range([0, 520]);
@@ -431,13 +424,12 @@
                             .attr("class", "axis")
                             .attr("transform", "translate(665, 774)")
                             .call(xAxis2);
-
-                        //Loops through each of the country keys inside all-data.json to append text and paths to draw out the lines inside the milk bottle
+                        //Loops through each of the country keys inside all-data.json to append text and paths to draw out the country name and left and right lines inside of the milk bottle
                         Object.keys(bins).forEach(function(key) {
                             //Adds a text element for country name along the y axis
                             svglabels.append("text").text(bins[key].countries).style("font-size", "19").style("fill", "#1E1E1E").style("text-anchor", "middle").attr("x", 550)
                                 .attr("y", YScale1(bins[key].id) + 250).attr("class", "countrylabel");
-                            //Adds lines through each country name to easily see how total milk production and consumption maps to which country
+                            //Adds left and right lines through each country name to make it clearer how total milk production and consumption maps to which country
                             svglabels.append("path").attr("d", lineFunction(indiaright) + lineFunction(indialeft) + lineFunction(usright) + lineFunction(usleft) + lineFunction(chinaright) + lineFunction(chinaleft) + lineFunction(pakleft) + lineFunction(pakright) + lineFunction(brazilleft) + lineFunction(brazilright) + lineFunction(russiaright) + lineFunction(russialeft) + lineFunction(franceright) + lineFunction(franceleft) + lineFunction(gerright) + lineFunction(gerleft) + lineFunction(turleft) + lineFunction(turright) + lineFunction(ukleft) + lineFunction(ukright) + lineFunction(polandleft) + lineFunction(polandright) + lineFunction(argright) + lineFunction(argleft) + lineFunction(mexleft) + lineFunction(mexright) + lineFunction(ausleft) + lineFunction(ausright) + lineFunction(canadaleft) + lineFunction(canadaright) + lineFunction(spainleft) + lineFunction(spainright) + lineFunction(sudanleft) + lineFunction(sudanright) + lineFunction(jpleft) + lineFunction(jpright) + lineFunction(iranleft) + lineFunction(iranright) + lineFunction(uzright) + lineFunction(uzleft)).attr("stroke", "#1E1E1E").attr("stroke-width", 1).attr("transform", "translate(450,238)");
                         });
                         //Loops through each of country keys inside all-data.json to append bars for milk production for each individual country
@@ -457,7 +449,6 @@
                                 .attr("width", XScale2(bins[key].Total_Milk_Consumption / 1000000) + 14)
                                 .attr("height", 23)
                         });
-
                         //Adds labels for total milk production, total milk consumption, and 2011 along the x axis 
                         svgContainer.append("g").attr("class", "ylabel").attr("transform", "translate(150," + 820 + ")").append("text").text("Total Milk Production(in million tonnes)").style("font-size", "11").style("font-weight", "bold").call(xAxis);
                         svgContainer.append("g").attr("class", "ylabel").attr("transform", "translate(760," + 820 + ")").append("text").text("Total Milk Consumption (in million tonnes)").style("font-size", "11").style("font-weight", "bold").call(xAxis);
@@ -471,11 +462,11 @@
                             var bins = countries;
                             histogram(bins);
                         })
-                        //Adds a cream-colored gradient inside the milk bottle 
+                    //Adds a cream-colored gradient inside the milk bottle 
                     var grad = d3.select("#milk").append("defs").append("linearGradient").attr("id", "grad").attr("x1", "0%").attr("x2", "0%").attr("y1", "100%").attr("y2", "0%");
                     grad.append("stop").attr("offset", "80%").style("stop-color", "#FDF5E6").append("path");
                     grad.append("stop").attr("offset", "80%").style("stop-color", "white");
-                    //Adds a path and draws out the milk bottle 
+                    //Adds a path with lineFunction and draws out the milk bottle svg element
                     d3.select("#milk").append("path").attr("d", lineFunction(milk)).attr("stroke", "#1E1E1E").attr("stroke-width", .3).attr("fill", "url(#grad)").attr("transform", "scale(4.5,6.3),translate(21.21,-26)");
                 </script>
             </div>
@@ -563,7 +554,6 @@
                             .attr("dx", "-.8em")
                             .attr("dy", ".15em")
                             .attr("transform", "rotate(-35)");
-
                         svg3.append('g')
                             .attr("class", "x axis")
                             .attr("transform", "translate(0," + height + ")")
@@ -573,7 +563,6 @@
                             .attr("y", 50)
                             .style("text-anchor", "end")
                             .text("Countries")
-
                         svg3.append('g')
                             .attr('class', 'y axis')
                             .call(yAxis)
@@ -584,7 +573,6 @@
                             .attr("dy", ".71em")
                             .style("text-anchor", "end")
                             .text("Number of Livestock");
-
                         var countries = svg3.selectAll(".countries")
                             .data(data)
                             .enter().append("g")
@@ -754,7 +742,6 @@
                             .attr("dy", ".71em")
                             .style("text-anchor", "end")
                             .text("Ranking of countries by milk consumption (in tonnes/capita)").style("font-weight", "900").style("font-size", "11px");
-
                     });
                 </script>
 
