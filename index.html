@@ -25,6 +25,10 @@
             stroke-width: 0;
             fill: #444;
         }
+
+        .dot{
+          opacity:1.25;
+        }
         
         p {
             font-size: 18px;
@@ -638,7 +642,7 @@
                     var xScaleG2 = d3.scale.linear().domain([0, 300]).range([0, widthG2]);
                     var yScaleG2 = d3.scale.linear().domain([0, 100]).range([heightG2, 0]);
                     var colorG2 = d3.scale.ordinal()
-                        .range(["#dcd1fd", "#3affe7", "#fdfbde", "#01b1f6", "#fe03ea", "#6373fd", "#fff5e7", "#a748ff", "#92e7f9", "#9995e9", "#ee7aff", "#0801ee","#cadde9", "#febfe7", "#e997fe","#d807fe","#e3f1ee","#e7ffed","#d0ffff","#e890bc"]);
+                        .range(["#dcd1fd", "#fec8e7", "#8596FF", "#fc0a1b", "#ff6d55", "#fe07d3", "#8e5bbd", "#663851", "#3d5e87", "#cdaca5", "#0243af", "#c8015d", "#b47085", "#ca764c", "#bd54f5", "#9e9bfe", "#8d7201", "#8b5a45", "#32012d","#8CBEE8"]);
                     var xAxisG2 = d3.svg.axis()
                         .scale(xScaleG2)
                         .orient("bottom");
