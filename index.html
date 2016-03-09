@@ -609,7 +609,8 @@
                         var colorAxisG2 = d3.svg.axis()
                             .scale(colorScaleG2)
                             .orient("right")
-                            .tickValues([31.5, 256.8]);
+                            .tickValues([31.5, 256.8])
+                            .tickFormat(d3.format(".1f"));
                         svgG2.append("g")
                             .attr("class", "y axis")
                             .attr("transform", "translate(980, 0)")
